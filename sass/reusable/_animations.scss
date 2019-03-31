@@ -1,0 +1,19 @@
+@keyframes spin {
+    0%{
+    }
+    25%{
+  
+      border: 10px dashed lighten(#ff4500,10%);
+    }
+    50%{
+      border: 10px dashed darken(#ff4500,20%);
+    }
+    75%{
+      border: 10px dashed #ff4500;
+    }
+    100%{
+      transform:rotate(360deg);
+      border:10px dashed lighten(#ff4500,30%);
+    }
+  }
+    

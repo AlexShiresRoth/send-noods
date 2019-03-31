@@ -1,0 +1,13 @@
+
+
+.side-bar-left{
+  background:$side-bar-color;
+  height:50vh;
+  width:100%;
+  margin:0;
+  padding:1rem;
+  display: flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  overflow-y:auto;
+}
