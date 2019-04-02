@@ -17,6 +17,8 @@ export default class Form extends React.Component {
         this.props.formChange(event);
     }
 
+    
+
 render(){
     return(
         <div className="form__container">
@@ -24,6 +26,12 @@ render(){
                 <img src="../imgs/ramen.png" alt="Ramen Bowl Logo"/>
                 Send Noods
             </div>
+                <button 
+                    className="clear__btn" 
+                    onClick={this.props.onClick}
+                >
+                    <i class="fas fa-window-close"></i>
+                </button>
             <form onSubmit={this.restaurantQuery}>
                 <div className="input__row">
                     <input 

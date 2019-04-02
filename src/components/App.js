@@ -22,7 +22,7 @@ class App extends React.Component {
   }
 
 
-  resaurantQuery = event => {
+ resaurantQuery = event => {
     //submit location value to state
        event.preventDefault()
 
@@ -32,15 +32,17 @@ class App extends React.Component {
           .then(res => {
             //load response to the RamenList in the SideBar
             const response = res;
-            this.setState({restaurantsArr: response})
+            this.setState({restaurantsArr: response, loading:false})
        })
-    }
+  }
 //render map {done}
 //add searchbar
 //ask for users location
 //list where user has traveled
 //list where user plans to travel
-
+  inputReset = () => {
+    this.setState({location: '', restaurantsArr: [], loading: false})
+  }
 
   render() {
     return (
@@ -49,6 +51,7 @@ class App extends React.Component {
               formDefault={this.resaurantQuery}
               formValue={this.state.location}
               formChange={this.onInputChange}
+              onClick={this.inputReset}
             />
            <RamenSpots 
               locations={this.state.restaurantsArr}

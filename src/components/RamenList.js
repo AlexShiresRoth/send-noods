@@ -24,8 +24,6 @@ const RamenList = (props) => {
 
 
     if(props.loading && props.restaurants.length < 1){
-
-        //create an actual loading spinner
         return(
             <div className="ramen__list--container">
                 <div className="loader-container">

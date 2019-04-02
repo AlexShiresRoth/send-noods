@@ -22,6 +22,7 @@ const RestaurantListItem = (restaurants) => {
             }
         return newArr;
     } 
+    //write a function to determine if restaurant is open or not
     /*const isOpen = (open) => {
         
         theres a bug with restaurants not having hours listed

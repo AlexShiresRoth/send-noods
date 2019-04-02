@@ -23,8 +23,6 @@
   .input__row--input {
     padding: 1rem;
     width: 15rem;
-    border-bottom-left-radius: 150px;
-    border-top-left-radius: 150px;
     border: 2px solid #f5f5f5f5;
     border-color: #fff;
     box-shadow: 0 2 2 #000;
@@ -46,6 +44,22 @@
     color: #fff;
     background-color: #cc3700; }
   .search__btn:focus {
+    outline: none; }
+
+.clear__btn {
+  color: #fff;
+  padding: 1rem;
+  border: 2px solid #ff4500;
+  border-top-left-radius: 150px;
+  border-bottom-left-radius: 150px;
+  background-color: #ff4500;
+  transition: .2s linear; }
+  .clear__btn:hover, .clear__btn:active {
+    cursor: pointer;
+    border: 2px solid #cc3700;
+    color: #fff;
+    background-color: #cc3700; }
+  .clear__btn:focus {
     outline: none; }
 
 .side-bar-left {
