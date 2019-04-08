@@ -19,7 +19,7 @@ class RamenSpots extends React.Component{
       lat: 40.712776,
       lng: -74.005974
     },
-    zoom:11
+    zoom:12
   }
 
   componentDidMount() {
@@ -28,11 +28,6 @@ class RamenSpots extends React.Component{
       (err) => this.setState({errMessage: err.message})
     );
   }
-
-  handleApiLoaded = (map, maps) => {
-    // use map and maps objects
- 
-  };
 
   
 
@@ -46,11 +41,11 @@ class RamenSpots extends React.Component{
         <div className="middle__container">
           <GoogleMapReact 
               bootstrapURLKeys={{ key: 'AIzaSyBQmMt4Lv-pJjKzuAseXQDuP5EyOmzQUhk'}}
-              defaultCenter={this.props.center}
+              defaultCenter={{lat:this.state.lat, lng:this.state.lng}}
               defaultZoom={this.props.zoom}
               center={{lat: this.state.lat, lng:this.state.lng}}
               yesIWantToUseGoogleMapApiInternals
-              onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
+              
             >
             <Markers
               ramenSpots={this.props.locations}
@@ -95,7 +90,7 @@ else {
             defaultZoom={this.props.zoom}
             center={{lat: this.state.lat, lng:this.state.lng}}
             yesIWantToUseGoogleMapApiInternals
-            onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
+            
           >
           <LocationMarker
               lat={this.state.lat}

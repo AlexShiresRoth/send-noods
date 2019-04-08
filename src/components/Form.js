@@ -23,8 +23,7 @@ render(){
     return(
         <div className="form__container">
             <div className="logo__container">
-                <img src="../imgs/ramen.png" alt="Ramen Bowl Logo"/>
-                Send Noods
+                <h1>Send N</h1><img src="../imgs/ramen.png" alt="Ramen Bowl Logo"/><img src="../imgs/ramen.png" alt="Ramen Bowl Logo"/><h1>ds</h1>
             </div>
                 <button 
                     className="clear__btn" 

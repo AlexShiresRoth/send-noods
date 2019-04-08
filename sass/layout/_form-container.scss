@@ -4,7 +4,7 @@
   display:flex;
   flex-direction:row;
   align-items: center;
-  background-color: $side-bar-color;
+  background-color:$color-white;
   padding:1rem;
   height:5rem;
 }
@@ -13,6 +13,12 @@
   display:flex;
   align-items: center;
   color:$color-white;
+
+  & h1{
+    text-transform: uppercase;
+    color:#666;
+    font-size:3rem;
+  }
 }
 .input__row{
   display: flex;
@@ -25,10 +31,8 @@
   &--input{
     padding:1rem;
     width:15rem;
-    border:2px solid #f5f5f5f5;
-    border-color: $color-white;
-    box-shadow: 0 2 2 #000;
-    background-color:#f5f5f5f5;
+    border:1px solid #fff;
+    background-color:#fff;
   }
   &--input:focus{
     outline:none;
@@ -37,9 +41,9 @@
 }
 //use mixin for these two---
 .search__btn{
-  color:$color-white;
+  color:#fff;
   padding: 1rem;
-  border:2px solid $color-orange;
+  border:1px solid $color-orange;
   border-top-right-radius:150px;
   border-bottom-right-radius: 150px;
   background-color:$color-orange;
@@ -47,7 +51,7 @@
   &:hover,
   &:active{
     cursor:pointer;
-    border:2px solid darken(#ff4500,10%);
+    border:1px solid darken(#ff4500,10%);
     color:$color-white;
     background-color:darken(#ff4500,10%);
   }
@@ -56,9 +60,9 @@
   }
 }
 .clear__btn{
-  color:$color-white;
+  color:#fff;
   padding: 1rem;
-  border:2px solid $color-orange;
+  border:1px solid $color-orange;
   border-top-left-radius:150px;
   border-bottom-left-radius: 150px;
   background-color:$color-orange;
@@ -66,8 +70,8 @@
   &:hover,
   &:active{
     cursor:pointer;
-    border:2px solid darken(#ff4500,10%);
-    color:$color-white;
+    border:1px solid darken(#ff4500,10%);
+    color:#fff;
     background-color:darken(#ff4500,10%);
   }
   &:focus{
