@@ -15,24 +15,17 @@ const RestaurantListItem = (restaurants) => {
       }
 
     const getPrice = (price) => {
-        
         let newArr = [];
             
-        if(price){
-            for(let i = 0; i < price; i++){
-                    
+            if(price){  
                     if(price >= 0){
                         newArr.push(<i className="fas fa-dollar-sign"></i>);
                     }
-                    //figure out why this doesnt work
-                    else if(!price){
-                        let jsxItem = <p style={{'color':'#666'}}>n/a</p>;
-                        newArr.push(jsxItem);
-                        console.log(jsxItem)
-                    }
-            }
-    
-        }
+                }
+            else if(!price){
+                    let jsxItem = <p style={{'color':'#666'}}>n/a</p>;
+                    newArr.push(jsxItem);
+                }
         return newArr;
     } 
     //write a function to determine if restaurant is open or not
