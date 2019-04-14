@@ -7,11 +7,20 @@ import { restaurantSearch } from './js/index';
 import '../dist/css/main.css';
 
 
+    //render map {done}
+    //add searchbar{done}
+    //ask for users location{done}
+    
+
 class App extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = { location: '', restaurantsArr:[], loading:false}
+    this.state = { 
+      location: '', 
+      restaurantsArr:[], 
+      loading:false
+    }
   }
 
   onInputChange = (event) => {
@@ -23,25 +32,27 @@ class App extends React.Component {
 
 
  resaurantQuery = event => {
-    //submit location value to state
+      
        event.preventDefault()
-
-       this.setState({loading:true})
-
+       //start loading spinner
+       
+       this.setState({loading:true, restaurantsArr:[]})
+      
+       //make the restaurants query
+      
        restaurantSearch(this.state.location)
           .then(res => {
             //load response to the RamenList in the SideBar
-            const response = res;
-            this.setState({restaurantsArr: response, loading:false})
+            
+            this.setState({restaurantsArr: res, loading:false})
        })
+       //clear the input
+       this.setState({location:''})
   }
-//render map {done}
-//add searchbar
-//ask for users location
-//list where user has traveled
-//list where user plans to travel
+
+  //clears input and results on button click
   inputReset = () => {
-    this.setState({location: '', restaurantsArr: [], loading: false})
+    this.setState({location:'',restaurantsArr: [], loading: false})
   }
 
   render() {
@@ -56,7 +67,7 @@ class App extends React.Component {
            <RamenSpots 
               locations={this.state.restaurantsArr}
             />
-        <div className="bottom__container">
+          <div className="bottom__container">
           <SideBar 
               ramenSpots={this.state.restaurantsArr}
               loading={this.state.loading}
