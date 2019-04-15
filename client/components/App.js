@@ -10,7 +10,12 @@ import '../css/main.css';
     //render map {done}
     //add searchbar{done}
     //ask for users location{done}
-    
+    //get maps working online at url
+    //style map markers
+    //style user location
+    //add a location box to each marker
+    //make it mobile responsive
+    //add pagination
 
 class App extends React.Component {
   constructor(props){
@@ -27,25 +32,25 @@ class App extends React.Component {
     //get location value from input
     this.setState({
       location: event.target.value 
-    })
+    });
   }
 
 
  resaurantQuery = event => {
       
-       event.preventDefault()
+       event.preventDefault();
+
        //start loading spinner
-       
        this.setState({loading:true, restaurantsArr:[]})
       
        //make the restaurants query
-      
        restaurantSearch(this.state.location)
           .then(res => {
             //load response to the RamenList in the SideBar
             
             this.setState({restaurantsArr: res, loading:false})
        })
+
        //clear the input
        this.setState({location:''})
   }
