@@ -10,6 +10,9 @@ import '../css/main.css';
     //render map {done}
     //add searchbar{done}
     //ask for users location{done}
+    //add function to handle no results found
+    //create a navbar under the map
+    //allow users to add certain spots to restaurants theyve been to
     //get maps working online at url
     //style map markers
     //style user location
@@ -41,23 +44,20 @@ class App extends React.Component {
        event.preventDefault();
 
        //start loading spinner
-       this.setState({loading:true, restaurantsArr:[]})
+       this.setState({loading:true, restaurantsArr:[]});
       
        //make the restaurants query
        restaurantSearch(this.state.location)
           .then(res => {
             //load response to the RamenList in the SideBar
-            
             this.setState({restaurantsArr: res, loading:false})
-       })
+       });
 
-       //clear the input
-       this.setState({location:''})
   }
 
   //clears input and results on button click
   inputReset = () => {
-    this.setState({location:'',restaurantsArr: [], loading: false})
+    this.setState({location:'', restaurantsArr: [], loading: false})
   }
 
   render() {
@@ -73,10 +73,11 @@ class App extends React.Component {
               locations={this.state.restaurantsArr}
             />
           <div className="bottom__container">
-          <SideBar 
-              ramenSpots={this.state.restaurantsArr}
-              loading={this.state.loading}
-            />
+            <SideBar 
+                ramenSpots={this.state.restaurantsArr}
+                loading={this.state.loading}
+                input={this.state.location}
+              />
           </div>
       </div>
     )

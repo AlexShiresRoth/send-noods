@@ -12,6 +12,7 @@ class SideBar extends React.Component {
             <RamenList
               restaurants={this.props.ramenSpots}
               loading={this.props.loading}
+              input={this.props.input}
             />
           </div>
       )

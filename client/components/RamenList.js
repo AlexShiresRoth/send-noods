@@ -6,6 +6,8 @@ import '../css/main.css';
 
 const RamenList = (props) => {
     
+    console.log(props.input);
+
     const ramenPhotoArray = ['ramen0.jpg','ramen1.jpg','ramen2.jpg']
 
 
@@ -23,6 +25,7 @@ const RamenList = (props) => {
                 />
         });
     
+    
 
     if(props.loading && props.restaurants.length < 1){
         return(
@@ -34,10 +37,20 @@ const RamenList = (props) => {
             </div>
         )
     }
+
+   if(!props.loading && props.restaurants.length > 0){
         return(
             <div className="ramen__list--container">
+                <h2>Results for <span style={{'color':'#ff4500'}}>{props.input.toUpperCase()}</span> </h2>
                 <div className="ramen--list">{restaurants}</div>
             </div>
         ) 
     }
+
+    return (
+        <div className="ramen__list--container">
+                <h2>Results Will Be Show Here...</h2>
+        </div>
+    )
+}
 export default RamenList;

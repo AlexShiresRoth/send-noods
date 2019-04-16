@@ -24,12 +24,14 @@ const RestaurantListItem = (restaurants) => {
                         newArr.push(<i className="fas fa-dollar-sign"></i>);
                     }
                 }
+                
             else if(!price){
                     let jsxItem = <p style={{'color':'#000'}}>n/a</p>;
                     newArr.push(jsxItem);
                 }
         return newArr;
     } 
+
     //write a function to determine if restaurant is open or not
     const getOpenTime = (open) => {
         if(open){
