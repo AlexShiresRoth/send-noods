@@ -40,7 +40,7 @@ class RamenSpots extends React.Component{
       return (
         <div className="middle__container">
           <GoogleMapReact 
-              bootstrapURLKeys={{ key: 'AIzaSyBQmMt4Lv-pJjKzuAseXQDuP5EyOmzQUhk'}}
+              bootstrapURLKeys={{ key: 'AIzaSyDlgDCQqIXD5pZXxddyrg4uEFGV9kWSwKU'}}
               defaultCenter={{lat:this.state.lat, lng:this.state.lng}}
               defaultZoom={this.props.zoom}
               center={{lat: this.state.lat, lng:this.state.lng}}
