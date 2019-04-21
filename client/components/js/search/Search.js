@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { api_key } from '../../../../config/keys';
 
 export default class Search {
     constructor(location){
@@ -8,7 +9,7 @@ export default class Search {
     }
 
      async findSpots(){
-        const key = 'AIzaSyDlgDCQqIXD5pZXxddyrg4uEFGV9kWSwKU';
+        const key = api_key;
         const crossOrigin = 'https://secret-ocean-49799.herokuapp.com/';
         try{
 
