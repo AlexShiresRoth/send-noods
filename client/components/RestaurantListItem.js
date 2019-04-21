@@ -4,6 +4,7 @@ import '../css/main.css';
 
 const RestaurantListItem = (restaurants) => {
 
+    //render star rating
     const getRating = (rating) => {
         
         let newArr = [];
@@ -15,6 +16,7 @@ const RestaurantListItem = (restaurants) => {
         return newArr;
       }
 
+      //render price symbol
     const getPrice = (price) => {
         
         let newArr = [];
@@ -29,10 +31,11 @@ const RestaurantListItem = (restaurants) => {
                     let jsxItem = <p style={{'color':'#000'}}>n/a</p>;
                     newArr.push(jsxItem);
                 }
+
         return newArr;
     } 
 
-    //write a function to determine if restaurant is open or not
+    // determine if restaurant is open or not
     const getOpenTime = (open) => {
         if(open){
             return <p style={{'color':'green'}}>Open</p>

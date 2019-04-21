@@ -37,6 +37,7 @@ class RamenSpots extends React.Component{
     
     if(this.props.locations.length > 0){
       console.log(this.props.locations)
+      
       return (
         <div className="middle__container">
           <GoogleMapReact 
@@ -81,6 +82,8 @@ class RamenSpots extends React.Component{
         </div>
       )
     }
+
+
 else {
     return(
       <div style={{height:'40vh', width: '100%'}}>
