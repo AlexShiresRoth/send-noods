@@ -8,7 +8,7 @@ export default class Search {
     }
 
      async findSpots(){
-        const key = 'AIzaSyDD6CgdABc0wXLAtvDMawQ-gnURFg0clO8';
+        const key = 'AIzaSyDlgDCQqIXD5pZXxddyrg4uEFGV9kWSwKU';
         const crossOrigin = 'https://secret-ocean-49799.herokuapp.com/';
         try{
 
