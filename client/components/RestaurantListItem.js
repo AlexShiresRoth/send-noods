@@ -41,7 +41,7 @@ const RestaurantListItem = (restaurants) => {
             return <p style={{'color':'green'}}>Open</p>
         }
         else{
-            return <p style={{'color':'red;'}}>Closed</p>
+            return <p style={{'color':'red'}}>Closed</p>
         }
     }
     
@@ -69,7 +69,8 @@ const RestaurantListItem = (restaurants) => {
                     </div>
                 
                     <div className="rating__container">
-                        User Rating:{getRating(restaurants.rating)}
+                        <div className="rating__container--stars">User Rating:{getRating(restaurants.rating)}</div>
+                        <div className="rating__container--total">({restaurants.ratingTotal})</div>
                     </div>
                     
                     <hr></hr>
@@ -81,7 +82,7 @@ const RestaurantListItem = (restaurants) => {
                     <hr></hr>
                 
                 <div className="hours__container">
-                    Open:{getOpenTime(restaurants.open)}
+                    {getOpenTime(restaurants.open)}
                 </div>
                 
                 <p>Address: {restaurants.spot.formatted_address}</p>

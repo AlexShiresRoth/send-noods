@@ -3,7 +3,7 @@ import GoogleMapReact from 'google-map-react';
 import LocationMarker from './LocationMarker';
 import Markers from './Markers';
 
-import { api_key } from '../../config/keys';
+import { api_key, maps_api_key } from '../../config/keys';
 
 import '../css/main.css';
 
@@ -43,7 +43,7 @@ class RamenSpots extends React.Component{
       return (
         <div className="middle__container">
           <GoogleMapReact 
-              bootstrapURLKeys={{ key: api_key}}
+              bootstrapURLKeys={{ key: maps_api_key}}
               defaultCenter={{lat:this.state.lat, lng:this.state.lng}}
               defaultZoom={this.props.zoom}
               center={{lat: this.state.lat, lng:this.state.lng}}
@@ -90,7 +90,7 @@ else {
     return(
       <div style={{height:'40vh', width: '100%'}}>
         <GoogleMapReact 
-            bootstrapURLKeys={{ key: api_key }}
+            bootstrapURLKeys={{ key: maps_api_key }}
             defaultCenter={this.props.center}
             defaultZoom={this.props.zoom}
             center={{lat: this.state.lat, lng:this.state.lng}}

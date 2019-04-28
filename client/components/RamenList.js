@@ -18,6 +18,7 @@ const RamenList = (props) => {
                     lng={spot.geometry.location.lng}
                     spot={spot}
                     rating={spot.rating}
+                    ratingTotal={spot.user_ratings_total}
                     price={spot.price_level}
                     photos={ramenPhotoArray}
                     open={spot.opening_hours.open_now}
@@ -40,7 +41,6 @@ const RamenList = (props) => {
    if(!props.loading && props.restaurants.length > 0){
         return(
             <div className="ramen__list--container">
-                <h2>Results for <span style={{'color':'#ff4500'}}>{props.input.toUpperCase()}</span> </h2>
                 <div className="ramen--list">{restaurants}</div>
             </div>
         ) 
@@ -48,7 +48,6 @@ const RamenList = (props) => {
 
     return (
         <div className="ramen__list--container">
-                <h2>Results Will Be Show Here...</h2>
         </div>
     )
 }
