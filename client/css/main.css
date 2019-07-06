@@ -7,6 +7,10 @@
   padding: 1rem;
   min-height: 5rem;
   box-shadow: 0 2px 2px #eee; }
+  .form__container--search {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
 
 .logo__container {
   display: flex;
@@ -40,7 +44,7 @@
   border-top-right-radius: 150px;
   border-bottom-right-radius: 150px;
   background-color: #ff4500;
-  transition: .2s linear; }
+  transition: 0.2s linear; }
   .search__btn:hover, .search__btn:active {
     cursor: pointer;
     border: 1px solid #cc3700;
@@ -56,7 +60,7 @@
   border-top-left-radius: 150px;
   border-bottom-left-radius: 150px;
   background-color: #ff4500;
-  transition: .2s linear; }
+  transition: 0.2s linear; }
   .clear__btn:hover, .clear__btn:active {
     cursor: pointer;
     border: 1px solid #cc3700;
@@ -150,17 +154,17 @@ select {
   box-shadow: 0 10px 10px #eeeeee;
   background: #fff;
   width: 15rem;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   padding: 0 1rem;
   color: #666; }
   .list--item hr {
     height: 0;
     border-top: 1px solid #eee;
     width: 100%;
-    margin: .5rem 0; }
+    margin: 0.5rem 0; }
   .list--item p:last-child {
     color: #666;
-    margin: .5rem 0; }
+    margin: 0.5rem 0; }
   .list--item:hover {
     transform: scale(1.1);
     box-shadow: 0 20px 20px #eeee;
@@ -169,7 +173,7 @@ select {
     color: goldenrod; }
 
 .rating__container {
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
