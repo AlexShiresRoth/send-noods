@@ -1,9 +1,9 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import LocationMarker from "./LocationMarker";
-import Markers from "./Markers";
+import Marker from "./Marker";
 
-import { api_key, maps_api_key } from "../../config/keys";
+import { maps_api_key } from "../../config/keys";
 
 import "../css/main.css";
 
@@ -19,7 +19,7 @@ class RamenSpots extends React.Component {
       lat: null,
       lng: null
     },
-    zoom: 9
+    zoom: 10
   };
 
   componentDidMount() {
@@ -34,9 +34,19 @@ class RamenSpots extends React.Component {
   }
 
   render() {
-    if (this.props.locations.length > 0) {
-      console.log(this.props.locations);
+    const renderMarkers = this.props.locations.map(location => {
+      console.log(location);
+      return (
+        <Marker
+          lat={location.geometry.location.lat}
+          lng={location.geometry.location.lng}
+          key={location.id}
+          text="Ramen Spot"
+        />
+      );
+    });
 
+    if (this.props.locations.length > 0) {
       return (
         <div className="middle__container">
           <GoogleMapReact
@@ -46,30 +56,8 @@ class RamenSpots extends React.Component {
             center={{ lat: this.state.lat, lng: this.state.lng }}
             yesIWantToUseGoogleMapApiInternals
           >
-            <Markers
-              ramenSpots={this.props.locations}
-              lat={this.props.locations[0].geometry.location.lat}
-              lng={this.props.locations[0].geometry.location.lng}
-              text="RamenSpot"
-            />
-            <Markers
-              ramenSpots={this.props.locations}
-              lat={this.props.locations[1].geometry.location.lat}
-              lng={this.props.locations[1].geometry.location.lng}
-              text="RamenSpot"
-            />
-            <Markers
-              ramenSpots={this.props.locations}
-              lat={this.props.locations[2].geometry.location.lat}
-              lng={this.props.locations[2].geometry.location.lng}
-              text="RamenSpot"
-            />
-            <Markers
-              ramenSpots={this.props.locations}
-              lat={this.props.locations[3].geometry.location.lat}
-              lng={this.props.locations[3].geometry.location.lng}
-              text="RamenSpot"
-            />
+            {renderMarkers}
+
             <LocationMarker
               lat={this.state.lat}
               lng={this.state.lng}
