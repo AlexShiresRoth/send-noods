@@ -33,9 +33,19 @@ class RamenSpots extends React.Component {
     );
   }
 
+  //fix this from infinite loop
+  /*componentDidUpdate() {
+    if (this.props.locations.length > 0) {
+      console.log(this.props.locations);
+      this.setState({
+        lat: this.props.locations[0].geometry.location.lat,
+        lng: this.props.locations[0].geometry.location.lng
+      });
+    }
+  }*/
+
   render() {
     const renderMarkers = this.props.locations.map(location => {
-      console.log(location);
       return (
         <Marker
           lat={location.geometry.location.lat}

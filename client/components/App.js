@@ -6,7 +6,6 @@ import { restaurantSearch } from "./js/index";
 
 import "../css/main.css";
 //add function to handle no results found
-//create a navbar under the map
 //allow users to add certain spots for restaurants they've been to
 //get maps working online at url
 //style map markers
@@ -92,7 +91,7 @@ class App extends React.Component {
 
     if (this.state.filter.toLowerCase() === "rating-amount") {
       let restaurants = this.state.restaurantsArr;
-      let ratingFilter = restaurants.slice(0, restaurants.length);
+      let ratingFilter = [...restaurants];
       this.setState({
         restaurantsArr: ratingFilter.sort((a, b) => {
           return b.user_ratings_total - a.user_ratings_total;
@@ -102,7 +101,7 @@ class App extends React.Component {
 
     if (this.state.filter.toLowerCase() === "best-rated") {
       let restaurants = this.state.restaurantsArr;
-      let bestRated = restaurants.slice(0, restaurants.length);
+      let bestRated = [...restaurants];
       this.setState({
         restaurantsArr: bestRated.sort((a, b) => {
           return b.rating - a.rating;
@@ -112,7 +111,7 @@ class App extends React.Component {
 
     if (this.state.filter.toLowerCase() === "price-low-to-high") {
       let restaurants = this.state.restaurantsArr;
-      let lowHigh = restaurants.slice(0, restaurants.length);
+      let lowHigh = [...restaurants]
       this.setState({
         restaurantsArr: lowHigh.sort((a, b) => {
           return a.price_level - b.price_level;
@@ -122,7 +121,7 @@ class App extends React.Component {
 
     if (this.state.filter.toLowerCase() === "price-high-to-low") {
       let restaurants = this.state.restaurantsArr;
-      let highLow = restaurants.slice(0, restaurants.length);
+      let highLow = [...restaurants];
       this.setState({
         restaurantsArr: highLow.sort((a, b) => {
           return b.price_level - a.price_level;
@@ -132,7 +131,7 @@ class App extends React.Component {
 
     if (this.state.filter.toLowerCase() === "open") {
       let restaurants = this.state.restaurantsArr;
-      let open = restaurants.slice(0, restaurants.length);
+      let open = [...restaurants];
       this.setState({
         restaurantsArr: open.filter(
           spot => spot.opening_hours.open_now === true
