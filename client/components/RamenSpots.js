@@ -32,17 +32,17 @@ class RamenSpots extends React.Component {
       err => this.setState({ errMessage: err.message })
     );
   }
-
-  //fix this from infinite loop
-  /*componentDidUpdate() {
-    if (this.props.locations.length > 0) {
-      console.log(this.props.locations);
-      this.setState({
-        lat: this.props.locations[0].geometry.location.lat,
-        lng: this.props.locations[0].geometry.location.lng
-      });
+  
+  componentDidUpdate(prevProps) {
+    if (this.props.locations !== prevProps.locations) {
+      if (this.props.locations.length > 0) {
+        this.setState({
+          lat: this.props.locations[0].geometry.location.lat,
+          lng: this.props.locations[0].geometry.location.lng
+        });
+      }
     }
-  }*/
+  }
 
   render() {
     const renderMarkers = this.props.locations.map(location => {

@@ -47,7 +47,7 @@ class App extends React.Component {
     this.setState({ loading: true, restaurantsArr: [] });
 
     //make the restaurants query if there is a query
-    if (this.state.location !== "" && this.state.location) {
+    if (this.state.location !== "") {
       restaurantSearch(this.state.location)
         .then(res => {
           //load response to the RamenList in the SideBar
@@ -58,6 +58,10 @@ class App extends React.Component {
           this.setState({ restaurantsArr: [], loading: false });
           alert(err.message);
         });
+    } else {
+      //create better handling than just an alert;
+      alert("Please enter a destination");
+      this.setState({ restaurantsArr: [], loading: false });
     }
   };
 
@@ -111,7 +115,7 @@ class App extends React.Component {
 
     if (this.state.filter.toLowerCase() === "price-low-to-high") {
       let restaurants = this.state.restaurantsArr;
-      let lowHigh = [...restaurants]
+      let lowHigh = [...restaurants];
       this.setState({
         restaurantsArr: lowHigh.sort((a, b) => {
           return a.price_level - b.price_level;
