@@ -11,7 +11,7 @@ class RamenSpots extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { lat: null, lng: null };
+    this.state = { lat: null, lng: null, userLat: null, userLng: null };
   }
 
   static defaultProps = {
@@ -19,7 +19,7 @@ class RamenSpots extends React.Component {
       lat: null,
       lng: null
     },
-    zoom: 10
+    zoom: 11
   };
 
   componentDidMount() {
@@ -27,12 +27,14 @@ class RamenSpots extends React.Component {
       position =>
         this.setState({
           lat: position.coords.latitude,
-          lng: position.coords.longitude
+          lng: position.coords.longitude,
+          userLat: position.coords.latitude,
+          userLng: position.coords.longitude
         }),
       err => this.setState({ errMessage: err.message })
     );
   }
-  
+
   componentDidUpdate(prevProps) {
     if (this.props.locations !== prevProps.locations) {
       if (this.props.locations.length > 0) {
@@ -69,8 +71,8 @@ class RamenSpots extends React.Component {
             {renderMarkers}
 
             <LocationMarker
-              lat={this.state.lat}
-              lng={this.state.lng}
+              lat={this.state.userLat}
+              lng={this.state.userLng}
               text="Current User Location"
             />
           </GoogleMapReact>

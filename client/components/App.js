@@ -43,10 +43,7 @@ class App extends React.Component {
 
   resaurantQuery = event => {
     event.preventDefault();
-    //start loading spinner and set results to empty array
     this.setState({ loading: true, restaurantsArr: [] });
-
-    //make the restaurants query if there is a query
     if (this.state.location !== "") {
       restaurantSearch(this.state.location)
         .then(res => {
@@ -65,14 +62,12 @@ class App extends React.Component {
     }
   };
 
-  //clears input and results on button click
   inputReset = event => {
     event.preventDefault();
 
     this.setState({ location: "", restaurantsArr: [], loading: false });
   };
 
-  //clear results when user enters input after results have loaded
   clearInput = () => {
     if (this.state.loading && this.state.locations.length > 0) {
       this.inputReset();
