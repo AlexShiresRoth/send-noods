@@ -209,7 +209,6 @@
   -ms-grid-columns: (1fr)[8];
       grid-template-columns: repeat(8, 1fr);
   -ms-grid-rows: (5vw)[2];
-      grid-template-rows: repeat(2, 5vw);
   grid-column-gap: 2px;
   grid-row-gap: 2px;
   margin: 1rem;

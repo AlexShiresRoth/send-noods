@@ -39,6 +39,7 @@ export default class Marker extends React.Component {
         <figure
           onMouseEnter={this.setHoverStateEnter}
           onMouseLeave={this.setHoverStateLeave}
+          onClick={this.setHoverStateEnter}
         >
           <img
             src={require(`../images/ramen.png`)}

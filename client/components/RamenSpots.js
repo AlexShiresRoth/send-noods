@@ -19,7 +19,7 @@ class RamenSpots extends React.Component {
       lat: null,
       lng: null
     },
-    zoom: 11
+    zoom: 12
   };
 
   componentDidMount() {

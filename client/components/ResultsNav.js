@@ -29,7 +29,6 @@ export default class ResultsNav extends React.Component {
           </div>
 
           <div className="results__nav--right">
-            <h2>Filter By:</h2>
             <form onSubmit={this.sortResults}>
               <select onChange={this.getInputValue}>
                 <option value="no-filter">No Filter</option>

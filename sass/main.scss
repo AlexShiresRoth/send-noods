@@ -1,36 +1,41 @@
 @import "base/variables";
+@import "base/mixins";
 
+@import "reusable/animations";
+@import "reusable/loader";
+
+//desktop view
 @import "layout/form-container";
 @import "layout/bottom";
+@import "layout/ramenList";
 
-@import "reusable/restaurantitems";
-@import "reusable/animations";
+//mobile queries
+@import "layout/media-queries/formContainerMobile";
+@import "layout/media-queries/bottomMobile";
+@import "layout/media-queries/ramenListMobile";
 
-
-
-
-*{
-  padding:0;
-  margin:0;
+* {
+  padding: 0;
+  margin: 0;
 }
-body{
-  font-family:'Open Sans';
-  overflow:hidden;
+body {
+  font-family: "Open Sans";
+  overflow: hidden;
 }
-.main--container{
-  display:flex;
+.main--container {
+  display: flex;
   flex-direction: column;
-  min-height:100vh;
+  min-height: 100vh;
 }
-.middle__container{
-  display:flex;
-  flex-direction:row;
-  height:35vh;
-  width:100%;
+.middle__container {
+  display: flex;
+  flex-direction: row;
+  height: 35vh;
+  width: 100%;
 }
-.bottom__container{
-  display:flex;
-  flex-direction:row;
-  height:70vh;
-  width:100%;
+.bottom__container {
+  display: flex;
+  flex-direction: row;
+  height: 70vh;
+  width: 100%;
 }
