@@ -53,6 +53,7 @@ class RamenSpots extends React.Component {
           lat={location.geometry.location.lat}
           lng={location.geometry.location.lng}
           key={location.id}
+          locationInfo={location}
           text="Ramen Spot"
         />
       );

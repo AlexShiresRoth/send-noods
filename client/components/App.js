@@ -5,11 +5,7 @@ import RamenSpots from "./RamenSpots";
 import { restaurantSearch } from "./js/index";
 
 import "../css/main.css";
-//add function to handle no results found
 //allow users to add certain spots for restaurants they've been to
-//get maps working online at url
-//style map markers
-//style user location
 //add a location box to each marker
 //make it mobile responsive
 //add pagination
