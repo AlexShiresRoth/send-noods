@@ -1,22 +1,44 @@
-import React from "react";
+import React, { lazy } from "react";
+import { FavoriteList } from "./FavoriteList";
 
 import "../css/main.css";
 
 export default class ResultsNav extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hovered: false
+    };
+  }
+
   sortResults = event => {
     this.props.sortResults(event);
   };
   getInputValue = event => {
     this.props.setValue(event);
   };
+  setHover() {
+    this.setState({ hovered: true });
+  }
+  setHoverLeave() {
+    this.setState({ hovered: false });
+  }
 
   render() {
     if (!this.props.loading && this.props.restaurants.length > 0) {
       return (
         <div className="results__nav">
-          <div className="results__nav--left">
+          <div
+            className="results__nav--left"
+            onMouseEnter={() => this.setHover()}
+            onMouseLeave={() => this.setHoverLeave()}
+          >
             <h2>Favorite Spots</h2>
-            <i class="far fa-heart" />
+            <i class="fas fa-chevron-down" />
+            {this.state.hovered && this.props.favorited ? (
+              <FavoriteList favorites={this.props.favorited} />
+            ) : null}
           </div>
 
           <div className="results__nav--middle">
@@ -46,9 +68,16 @@ export default class ResultsNav extends React.Component {
     } else {
       return (
         <div className="results__nav">
-          <div className="results__nav--left">
+          <div
+            className="results__nav--left"
+            onMouseEnter={() => this.setHover()}
+            onMouseLeave={() => this.setHoverLeave()}
+          >
             <h2>Favorite Spots</h2>
-            <i class="far fa-heart" />
+            <i class="fas fa-chevron-down" />
+            {this.state.hovered && this.props.favorited ? (
+              <FavoriteList favorites={this.props.favorited} />
+            ) : null}
           </div>
           <div className="results__nav--middle">
             <h2>Results Will Be Shown Below.</h2>

@@ -16,10 +16,15 @@ class SideBar extends React.Component {
 
   favorites = [];
 
+  componentDidMount(){
+    console.log(this.state.favorited)
+  }
   addFavorite = (e, data) => {
     //need to check array if name already exists
-    this.favorites.push(data);
-    console.log(this.state.favorited);
+    if (!this.favorites.includes(data)) {
+      this.favorites.push(data);
+      console.log(this.state.favorited);
+    }
   };
 
   render() {
@@ -32,6 +37,7 @@ class SideBar extends React.Component {
           filter={this.props.filter}
           sortResults={this.props.sortResults}
           setValue={this.props.onChange}
+          favorited={this.state.favorited}
         />
         <RamenList
           restaurants={this.props.ramenSpots}
