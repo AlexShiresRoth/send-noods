@@ -5,6 +5,23 @@ import ResultsNav from "./ResultsNav";
 import "../css/main.css";
 
 class SideBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      favorited: this.favorites
+    };
+    this.addFavorite = this.addFavorite.bind(this);
+  }
+
+  favorites = [];
+
+  addFavorite = (e, data) => {
+    //need to check array if name already exists
+    this.favorites.push(data);
+    console.log(this.state.favorited);
+  };
+
   render() {
     return (
       <div className="side-bar-left">
@@ -20,6 +37,7 @@ class SideBar extends React.Component {
           restaurants={this.props.ramenSpots}
           loading={this.props.loading}
           input={this.props.input}
+          addFavorite={this.addFavorite}
         />
       </div>
     );

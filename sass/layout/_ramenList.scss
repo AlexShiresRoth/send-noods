@@ -13,13 +13,12 @@
   color: #fff;
 }
 
-
 .list--item {
   padding: 0.5rem 0;
   border-top: 0.05rem solid #666;
 }
 
-.list--item p:first-child {
+.list--item {
   color: #ff4500;
 }
 
@@ -96,9 +95,19 @@
   align-items: center;
   justify-content: center;
 }
+.address__container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  & i {
+    color: $color-orange;
+  }
+}
 .img-container {
   border-radius: 50%;
-  height: 100%;
+  max-height: 100%;
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-column-gap: 2px;
@@ -136,4 +145,3 @@
   font-weight: 700;
   color: darken(#ff4500, 5%);
 }
-

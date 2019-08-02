@@ -7,7 +7,6 @@ const SideBar = lazy(() => import("./SideBar"));
 const Form = lazy(() => import("./Form"));
 const RamenSpots = lazy(() => import("./RamenSpots"));
 
-
 //allow users to add certain spots for restaurants they've been to
 //add a location box to each marker
 //make it mobile responsive

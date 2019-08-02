@@ -18,6 +18,7 @@ const RamenList = props => {
         price={spot.price_level}
         photos={ramenPhotoArray}
         open={spot.opening_hours.open_now}
+        addFavorite={props.addFavorite}
       />
     );
   });
