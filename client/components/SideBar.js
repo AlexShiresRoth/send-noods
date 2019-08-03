@@ -16,8 +16,13 @@ class SideBar extends React.Component {
 
   favorites = [];
 
-  componentDidMount(){
-    console.log(this.state.favorited)
+  componentDidMount() {
+    console.log(this.state.favorited);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.favorited !== prevState.favorited) {
+      window.localStorage.setItem("state", this.state.favorited);
+    }
   }
   addFavorite = (e, data) => {
     //need to check array if name already exists

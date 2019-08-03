@@ -202,13 +202,6 @@ select {
   flex-direction: column;
   color: #fff; }
 
-.list--item {
-  padding: 0.5rem 0;
-  border-top: 0.05rem solid #666; }
-
-.list--item {
-  color: #ff4500; }
-
 .ramen--list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -223,12 +216,13 @@ select {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 1px;
+  border-radius: 15px;
   box-shadow: 0 10px 10px #eeeeee;
   background: #fff;
   width: 15rem;
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-in-out;
   padding: 0 1rem;
+  color: #ff4500;
   color: #666; }
   .list--item hr {
     height: 0;
@@ -239,7 +233,7 @@ select {
     color: #666;
     margin: 0.5rem 0; }
   .list--item:hover {
-    transform: scale(1.1);
+    transform: translateY(-1vh);
     box-shadow: 0 20px 20px #eeee;
     cursor: pointer; }
   .list--item span {
