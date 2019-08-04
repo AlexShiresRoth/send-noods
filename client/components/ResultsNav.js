@@ -37,7 +37,10 @@ export default class ResultsNav extends React.Component {
             <h2>Favorite Spots</h2>
             <i class="fas fa-chevron-down" />
             {this.state.hovered && this.props.favorited ? (
-              <FavoriteList favorites={this.props.favorited} />
+              <FavoriteList
+                favorites={this.props.favorited}
+                removeFavorite={this.props.removeFavorite}
+              />
             ) : null}
           </div>
 
@@ -76,7 +79,10 @@ export default class ResultsNav extends React.Component {
             <h2>Favorite Spots</h2>
             <i class="fas fa-chevron-down" />
             {this.state.hovered && this.props.favorited ? (
-              <FavoriteList favorites={this.props.favorited} />
+              <FavoriteList
+                favorites={this.props.favorited}
+                removeFavorite={this.props.removeFavorite}
+              />
             ) : null}
           </div>
           <div className="results__nav--middle">

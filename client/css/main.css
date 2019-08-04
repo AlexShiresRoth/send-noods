@@ -234,8 +234,7 @@ select {
     margin: 0.5rem 0; }
   .list--item:hover {
     transform: translateY(-1vh);
-    box-shadow: 0 20px 20px #eeee;
-    cursor: pointer; }
+    box-shadow: 0 20px 20px #eeee; }
   .list--item span {
     color: goldenrod; }
 
@@ -275,36 +274,42 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: center; }
-  .address__container i {
-    color: #ff4500; }
+  .address__container--favorite {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0.5rem; }
+    .address__container--favorite p {
+      margin: 0.5rem; }
+    .address__container--favorite i {
+      color: #ff4500;
+      padding: 0.5rem;
+      border-radius: 50%;
+      box-shadow: 0 10px 10px #eee;
+      transition: all 0.4s ease-in-out; }
+      .address__container--favorite i:hover {
+        cursor: pointer;
+        background: #ff4500;
+        border-radius: 50%;
+        box-shadow: 0 10px 10px #eee;
+        color: #fff;
+        padding: 0.5rem; }
 
 .img-container {
   border-radius: 50%;
-  max-height: 100%;
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-column-gap: 2px;
-  grid-row-gap: 2px;
-  margin: 1rem; }
-  .img-container img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover; }
-  .img-container .image__item:nth-child(1) {
-    grid-column-start: 1;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 1; }
-  .img-container .image__item:nth-child(2) {
-    grid-column-start: 5;
-    grid-column-end: 9;
-    grid-row-start: 1;
-    grid-row-end: 2; }
-  .img-container .image__item:nth-child(3) {
-    grid-column-start: 1;
-    grid-column-end: 9;
-    grid-row-start: 2;
-    grid-row-end: 2; }
+  max-height: 7rem;
+  max-width: 7rem;
+  display: flex;
+  margin: 0.5rem;
+  border: 7px solid rgba(255, 69, 0, 0.7); }
+  .img-container figure {
+    max-height: 100%; }
+    .img-container figure img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 50%; }
 
 .ramen__title {
   margin: 1.3rem 0;
@@ -323,6 +328,7 @@ select {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: nowrap;
     align-items: flex-start;
     list-style: none;
     border-bottom: 1px solid #fff;

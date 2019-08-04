@@ -12,23 +12,30 @@ class SideBar extends React.Component {
       favorited: this.favorites
     };
     this.addFavorite = this.addFavorite.bind(this);
+    this.removeFavorite = this.removeFavorite.bind(this);
   }
 
-  favorites = [];
+  favorites = JSON.parse(localStorage.getItem("favorites")) || [];
 
-  componentDidMount() {
-    console.log(this.state.favorited);
-  }
   componentDidUpdate(prevProps, prevState) {
+    //console.log(this.state.favorited);
     if (this.state.favorited !== prevState.favorited) {
-      window.localStorage.setItem("state", this.state.favorited);
+      this.setState({ favorited: this.favorites });
     }
   }
+
   addFavorite = (e, data) => {
     //need to check array if name already exists
     if (!this.favorites.includes(data)) {
       this.favorites.push(data);
-      console.log(this.state.favorited);
+      localStorage.setItem("favorites", JSON.stringify(this.favorites));
+    }
+  };
+  removeFavorite = (e, data) => {
+    if (this.favorites.includes(data)) {
+      this.favorites.splice(this.favorites.indexOf(data), 1);
+      this.setState({ favorited: this.favorites });
+      localStorage.setItem("favorites", JSON.stringify(this.favorites));
     }
   };
 
@@ -43,6 +50,7 @@ class SideBar extends React.Component {
           sortResults={this.props.sortResults}
           setValue={this.props.onChange}
           favorited={this.state.favorited}
+          removeFavorite={this.removeFavorite}
         />
         <RamenList
           restaurants={this.props.ramenSpots}

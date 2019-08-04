@@ -39,21 +39,24 @@ const RestaurantListItem = props => {
     }
   };
 
-  const getPhotos = props.photos.map(photo => {
+  const getPhotos = () => {
+    let photoArr = props.photos;
+    let length = props.photos.length;
+    let random = Math.floor(Math.random() * length);
     return (
-      <firgure className="image__item">
-        <img src={require(`../images/${photo}`)} alt="Ramen" />
-      </firgure>
+      <figure className="image__item">
+        <img src={require(`../images/${photoArr[random]}`)} alt="Ramen" />
+      </figure>
     );
-  });
+  };
 
   const getdata = () => {
     return props.spot.name;
-  }
+  };
 
   return (
     <div className="list--item">
-      <div className="img-container">{getPhotos}</div>
+      <div className="img-container">{getPhotos()}</div>
       <div className="ramen__title">{props.spot.name}</div>
       <div className="rating__container">
         <div className="rating__container--stars">
@@ -69,7 +72,13 @@ const RestaurantListItem = props => {
       <div className="hours__container">{getOpenTime(props.open)}</div>
       <div className="address__container">
         <p>Address: {props.spot.formatted_address}</p>
-        <i class="far fa-heart" onClick={(e) => props.addFavorite(e,getdata())} />
+        <div className="address__container--favorite">
+          <i
+            class="far fa-heart"
+            onClick={e => props.addFavorite(e, getdata())}
+          />
+          <p>Add to favorites</p>
+        </div>
       </div>
     </div>
   );
