@@ -1,54 +1,56 @@
-import React from "react";
-import "../css/main.css";
+import React from 'react';
+import '../css/main.css';
 
 export default class Marker extends React.Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    this.state = {
-      hovered: false
-    };
-  }
+		this.state = {
+			hovered: false,
+		};
+	}
 
-  imgStyles = {
-    height: "1.5rem",
-    width: "1.5rem"
-  };
+	imgStyles = {
+		height: '1.5rem',
+		width: '1.5rem',
+	};
 
-  setHoverStateEnter = () => {
-    this.setState({ hovered: true });
-  };
-  setHoverStateLeave = () => {
-    this.setState({ hovered: false });
-  };
+	setHoverStateEnter = () => {
+		this.setState({ hovered: true });
+	};
+	setHoverStateLeave = () => {
+		this.setState({ hovered: false });
+	};
 
-  showInfo = () => {
-    if (this.state.hovered) {
-      console.log(this.props.locationInfo.name);
-      return (
-        <div style={{ position: "absolute" }}>
-          <h1>{this.props.locationInfo.name}</h1>
-        </div>
-      );
-    }
-  };
+	showInfo = () => {
+		if (this.state.hovered) {
+			console.log(this.props.locationInfo);
+			const lat = this.props.locationInfo.geometry.lat;
+			const lng = this.props.locationInfo.geometry.lng;
+			return (
+				<div className="ramen-popup" style={{ position: 'absolute' }}>
+					<p>{this.props.locationInfo.name}</p>
+					<a href={`https://maps.google.com/?ll=${lat},${lng}`}>
+						{this.props.locationInfo.formatted_address}
+					</a>
+				</div>
+			);
+		}
+	};
 
-  render() {
-    return (
-      <div style={{ position: "relative" }}>
-        <figure
-          onMouseEnter={this.setHoverStateEnter}
-          onMouseLeave={this.setHoverStateLeave}
-          onClick={this.setHoverStateEnter}
-        >
-          <img
-            src={require(`../images/ramen.png`)}
-            alt={this.props.text}
-            style={this.imgStyles}
-          />
-        </figure>
-        {this.showInfo()}
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div
+				style={{ position: 'relative' }}
+				onMouseEnter={this.setHoverStateEnter}
+				onMouseLeave={this.setHoverStateLeave}
+				onClick={this.setHoverStateEnter}
+			>
+				<figure>
+					<img src={require(`../images/ramen.png`)} alt={this.props.text} style={this.imgStyles} />
+				</figure>
+				{this.showInfo()}
+			</div>
+		);
+	}
 }

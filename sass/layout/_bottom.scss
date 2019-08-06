@@ -1,81 +1,105 @@
 .side-bar-left {
-  background: $color-white;
-  height: 50vh;
-  width: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  overflow-y: auto;
+	background: $color-white;
+	height: 50vh;
+	width: 100%;
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	overflow-y: auto;
 }
 
 .results__nav {
-  width: 100vw;
-  min-height: 5rem;
-  background: #fff;
-  box-shadow: 0 2px 2px #eee;
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+	width: 100vw;
+	background: #fff;
+	box-shadow: 0 2px 2px #eee;
+	position: fixed;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
   z-index: 99999;
+  padding:1rem 0;
 
-  &--left {
-    order: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-    & h2 {
-      color: #666;
-    }
+	&--left {
+		order: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		position: relative;
+		padding: 0.5rem 0;
+		& h2 {
+			color: #666;
+		}
 
-    & i {
-      color: $color-orange;
-      font-size: 1.5rem;
-    }
-  }
-  &--middle {
-    order: 1;
+		& i {
+			color: $color-orange;
+			font-size: 1.5rem;
+			margin: 0 0.5rem;
+		}
+	}
+	&--middle {
+		order: 1;
 
-    & h2 {
-      color: #666;
-    }
-  }
-  &--right {
-    order: 2;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+		& h2 {
+			color: #666;
+		}
+	}
+	&--right {
+		order: 2;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
 
-    & button {
-      padding: 0.61rem;
-      background: $color-orange;
-      border: 1px solid $color-orange;
-      transition: all 0.3s ease;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      color: #fff;
+		& button {
+			padding: 0.61rem;
+			background: $color-orange;
+			border: 1px solid $color-orange;
+			transition: all 0.3s ease;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+			color: #fff;
 
-      &:hover {
-        cursor: pointer;
-        background: darken($color-orange, 20%);
-        border: 1px solid darken($color-orange, 20%);
-      }
-    }
-    & h2 {
-      color: #666;
-      margin-right: 0.3rem;
-    }
-  }
+			&:hover {
+				cursor: pointer;
+				background: darken($color-orange, 20%);
+				border: 1px solid darken($color-orange, 20%);
+			}
+		}
+		& h2 {
+			color: #666;
+			margin-right: 0.3rem;
+		}
+	}
+}
+
+//marker popup style
+.ramen-popup {
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0 5px 10px #eee;
+	display: flex;
+	min-width: 5rem;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 1rem;
+	color: rgb(139, 134, 134);
+	& p {
+		font-size: 1.1rem;
+		color: $color-orange;
+	}
+	& a {
+		color: dodgerblue;
+		text-decoration: none;
+		font-size: 1rem;
+	}
 }
 
 select {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  padding: 0.52rem;
-  border: 1px solid $color-orange;
-  margin: 0 0 0 0.5rem;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	padding: 0.52rem;
+	border: 1px solid $color-orange;
+	margin: 0 0 0 0.5rem;
 }
