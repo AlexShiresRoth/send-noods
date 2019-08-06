@@ -19,8 +19,8 @@ class SideBar extends React.Component {
 
 	componentDidUpdate(prevProps, prevState) {
 		//console.log(this.state.favorited);
-		if (this.state.favorites !== prevState.favorites) {
-			this.setState({ favorited: this.favorites });
+		if (this.favorites !== prevState.favorites) {
+			this.setState({ favorites: this.favorites });
 		}
 	}
 

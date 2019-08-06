@@ -7,6 +7,7 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	overflow-y: auto;
+	position: relative;
 }
 
 .results__nav {
@@ -18,8 +19,8 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
-  z-index: 99999;
-  padding:1rem 0;
+	z-index: 99999;
+	padding: 1rem 0;
 
 	&--left {
 		order: 0;
@@ -84,15 +85,18 @@
 	flex-direction: column;
 	justify-content: space-around;
 	padding: 1rem;
-	color: rgb(139, 134, 134);
+  color: rgb(139, 134, 134);
+  overflow-y:scroll;
 	& p {
-		font-size: 1.1rem;
+		font-size: 0.9rem;
 		color: $color-orange;
+		margin: 0.5rem;
 	}
 	& a {
 		color: dodgerblue;
 		text-decoration: none;
-		font-size: 1rem;
+		font-size: 0.9rem;
+		margin: 0.5rem;
 	}
 }
 
