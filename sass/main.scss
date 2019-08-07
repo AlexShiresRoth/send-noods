@@ -1,9 +1,6 @@
 @import 'base/variables';
 @import 'base/mixins';
 
-@import 'reusable/animations';
-@import 'reusable/loader';
-
 //desktop view
 @import 'layout/form-container';
 @import 'layout/bottom';
@@ -14,6 +11,10 @@
 @import 'layout/media-queries/formContainerMobile';
 @import 'layout/media-queries/bottomMobile';
 @import 'layout/media-queries/ramenListMobile';
+
+@import 'reusable/animations';
+@import 'reusable/loader';
+@import 'reusable/active';
 
 * {
 	padding: 0;

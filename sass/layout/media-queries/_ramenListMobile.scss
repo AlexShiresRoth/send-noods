@@ -23,24 +23,25 @@
 		background: #fff;
 		width: 100%;
 		transition: all 0.2s ease-in-out;
-    color: #ff4500;
-    padding:0;
-	margin:1rem 0;
+		color: #ff4500;
+		padding: 0;
+		margin: 1rem 0;
 		p:last-child {
 			color: #666;
 			margin: 0.5rem 0;
 		}
 		&:hover {
-			transform: translateY(-1vh);
 			box-shadow: 0 20px 20px #eeee;
 		}
 		&--top {
 			display: flex;
 			flex-direction: row;
-      align-items: center;
-      justify-content:space-around;
+			align-items: center;
+			justify-content: space-around;
 			width: 100%;
 			border-bottom: 1px solid #eee;
+			transition: all 0.5s ease-in-out;
+			max-height: 200rem;
 		}
 		&--middle {
 			display: flex;
@@ -48,6 +49,8 @@
 			align-items: center;
 			width: 100%;
 			border-bottom: 1px solid #eee;
+			transition: all 0.5s ease-in-out;
+			max-height: 200rem;
 		}
 		&--bottom {
 			display: flex;
@@ -55,6 +58,8 @@
 			align-items: center;
 			width: 100%;
 			justify-content: space-around;
+			transition: all 0.5s ease-in-out;
+			max-height: 200rem;
 		}
 
 		& span {
@@ -147,8 +152,33 @@
 	}
 	.ramen__title {
 		margin: 0.5rem 0;
-
+		display: flex;
+		flex-direction: column;
 		font-weight: 700;
 		color: darken(#ff4500, 5%);
+		&--toggle {
+			display: flex;
+			flex-direction: row;
+			margin: 0 0.5rem;
+			align-items: center;
+			& i {
+				transition: all 0.3s ease-in-out;
+				padding: 0.5rem;
+				box-shadow: 0 10px 10px #eee;
+				margin: 0 0.5rem;
+				border-radius: 50%;
+				&:hover {
+					cursor: pointer;
+					background: $color-orange;
+					border-radius: 20px;
+					padding: 0.5rem;
+					color: #fff;
+					box-shadow: 0 10px 10px darken($color-orange, 10%);
+				}
+			}
+			& p {
+				font-size: 0.9rem;
+			}
+		}
 	}
 }

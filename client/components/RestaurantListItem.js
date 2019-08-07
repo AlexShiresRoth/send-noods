@@ -8,6 +8,7 @@ export default class RestaurantListItem extends React.Component {
 
 		this.state = {
 			isMobile: false,
+			showMore: false,
 		};
 	}
 	//change to mobile view depending on screen width
@@ -21,6 +22,14 @@ export default class RestaurantListItem extends React.Component {
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.isMobile !== prevState.isMobile) {
 			window.addEventListener('resize', this.handleScreenSize);
+		}
+	}
+
+	toggleCardDetails() {
+		if (!this.state.showMore) {
+			this.setState({ showMore: true });
+		} else {
+			this.setState({ showMore: false });
 		}
 	}
 
@@ -130,22 +139,33 @@ export default class RestaurantListItem extends React.Component {
 				<div className="list--item">
 					<div className="list--item--top">
 						<div className="img-container">{getPhotos()}</div>
-						<div className="ramen__title">{this.props.spot.name}</div>
+						<div className="ramen__title">
+							{this.props.spot.name}
+							<div className="ramen__title--toggle">
+								<i
+									class={`${this.state.showMore ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}
+									onClick={() => this.toggleCardDetails()}
+								/>
+								<p>{this.state.showMore ? 'Hide Details' : 'Show Details'}</p>
+							</div>
+						</div>
 					</div>
-					<div className="list--item--middle">
-						<div className="rating__container">
+					<div className={`list--item--middle ${this.state.showMore ? null : 'hidden'}`}>
+						<div className={`rating__container ${this.state.showMore ? null : 'hidden'}`}>
 							<div className="rating__container--stars">User Rating:{getRating(this.props.rating)}</div>
 							<div className="rating__container--total">({this.props.ratingTotal})</div>
 						</div>
-						<div className="address__container">
+						<div className={`address__container ${this.state.showMore ? null : 'hidden'}`}>
 							<p>Address: {this.props.spot.formatted_address}</p>
 						</div>
 					</div>
-					<div className="list--item--bottom">
-						<div className="price__container">
+					<div className={`list--item--bottom ${this.state.showMore ? null : 'hidden'}`}>
+						<div className={`price__container ${this.state.showMore ? null : 'hidden'}`}>
 							Price:<span>{getPrice(this.props.price)}</span>
 						</div>
-						<div className="hours__container">{getOpenTime(this.props.open)}</div>
+						<div className={`hours__container ${this.state.showMore ? null : 'hidden'}`}>
+							{getOpenTime(this.props.open)}
+						</div>
 						<div className="favorite">
 							<i
 								class="far fa-heart"
