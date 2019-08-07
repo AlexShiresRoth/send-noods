@@ -31,7 +31,7 @@ export default class Marker extends React.Component {
 				<div className="ramen-popup" style={{ position: 'absolute' }}>
 					<p>{this.props.locationInfo.name}</p>
 					<a href={`https://maps.google.com/?ll=${lat},${lng}`}>
-						{this.props.locationInfo.formatted_address}
+						{this.props.locationInfo.formatted_address.substring(30)}...
 					</a>
 				</div>
 			);

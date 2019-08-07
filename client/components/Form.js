@@ -20,7 +20,7 @@ export default class Form extends React.Component {
     return (
       <div className="form__container">
         <div className="logo__container">
-          <h1>Send N</h1>
+          <h1>Find N</h1>
           <img src="../images/ramen.png" alt="Ramen Bowl Logo" />
           <img src="../images/ramen.png" alt="Ramen Bowl Logo" />
           <h1>ds</h1>

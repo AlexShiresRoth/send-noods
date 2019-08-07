@@ -9,7 +9,10 @@ export default class ResultsNav extends React.Component {
 
 		this.state = {
 			hovered: false,
+			favorites: this.props.favorited,
+			isMobile: false,
 		};
+		this.handleScreenSize = this.handleScreenSize.bind(this);
 	}
 
 	sortResults = event => {
@@ -24,6 +27,23 @@ export default class ResultsNav extends React.Component {
 	setHoverLeave() {
 		this.setState({ hovered: false });
 	}
+	handleScreenSize() {
+		this.setState({ isMobile: window.innerWidth < 600 });
+	}
+
+	componentDidMount() {
+		this.handleScreenSize();
+		window.addEventListener('resize', this.handleScreenSize);
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (this.props.favorited !== prevProps.favorited) {
+			this.setState({ favorites: this.props.favorited });
+		}
+		if (this.state.isMobile !== prevState.isMobile) {
+			window.addEventListener('resize', this.handleScreenSize);
+		}
+	}
 
 	render() {
 		if (!this.props.loading && this.props.restaurants.length > 0) {
@@ -37,10 +57,10 @@ export default class ResultsNav extends React.Component {
 						<h2>Favorite Spots</h2>
 						<i class="fas fa-chevron-down" />
 						{this.state.hovered && this.props.favorited ? (
-							<FavoriteList favorites={this.props.favorited} removeFavorite={this.props.removeFavorite} />
+							<FavoriteList favorites={this.state.favorites} removeFavorite={this.props.removeFavorite} />
 						) : null}
 					</div>
-					{window.innerWidth > 600 ? (
+					{!this.state.isMobile ? (
 						<div className="results__nav--middle">
 							<h2>
 								Results for <span style={{ color: '#ff4500' }}>{this.props.input.toUpperCase()}</span>{' '}
@@ -74,10 +94,10 @@ export default class ResultsNav extends React.Component {
 						<h2>Favorite Spots</h2>
 						<i class="fas fa-chevron-down" />
 						{this.state.hovered && this.props.favorited ? (
-							<FavoriteList favorites={this.props.favorited} removeFavorite={this.props.removeFavorite} />
+							<FavoriteList favorites={this.state.favorites} removeFavorite={this.props.removeFavorite} />
 						) : null}
 					</div>
-					{window.innerWidth > 600 ? (
+					{!this.state.isMobile ? (
 						<div className="results__nav--middle">
 							<h2>Results Will Be Shown Below.</h2>
 						</div>

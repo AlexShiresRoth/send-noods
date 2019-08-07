@@ -2,6 +2,7 @@ import React from "react";
 
 import "../css/main.css";
 
+//props passed from resultsNav 
 export const FavoriteList = props => {
   const Favorites = props.favorites.map(favorite => {
     const getData = () => {

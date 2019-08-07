@@ -1,16 +1,16 @@
-@media screen and (max-width: 450px) {
-  .form__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    & .logo__container {
-      & h1 {
-        font-size: 2rem;
-      }
-      & img {
-        height: 2rem;
-      }
-    }
-  }
+@media screen and (max-width: 600px) {
+	.form__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		& .logo__container {
+			& h1 {
+				font-size: 2rem;
+			}
+			& img {
+				height: 2rem;
+			}
+		}
+	}
 }
