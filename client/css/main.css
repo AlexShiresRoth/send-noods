@@ -39,7 +39,7 @@
 
 .search__btn {
   color: #fff;
-  padding: 1.1rem;
+  padding: 1.13rem;
   border: 1px solid #ff4500;
   border-top-right-radius: 150px;
   border-bottom-right-radius: 150px;
@@ -478,8 +478,7 @@ select {
     margin: 0.5rem 0;
     display: flex;
     flex-direction: column;
-    font-weight: 700;
-    color: #e63e00; }
+    font-weight: 700; }
     .ramen__title--toggle {
       display: flex;
       flex-direction: row;
@@ -490,7 +489,8 @@ select {
         padding: 0.5rem;
         box-shadow: 0 10px 10px #eee;
         margin: 0 0.5rem;
-        border-radius: 50%; }
+        border-radius: 50%;
+        color: #e63e00; }
         .ramen__title--toggle i:hover {
           cursor: pointer;
           background: #ff4500;
@@ -499,7 +499,8 @@ select {
           box-shadow: 0 10px 10px #cc3700;
           transform: translateY(0.3vh); }
       .ramen__title--toggle p {
-        font-size: 0.9rem; } }
+        font-size: 0.9rem;
+        color: #666; } }
 
 .loader-container {
   display: flex;

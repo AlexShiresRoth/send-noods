@@ -159,7 +159,6 @@
 		display: flex;
 		flex-direction: column;
 		font-weight: 700;
-		color: darken(#ff4500, 5%);
 		&--toggle {
 			display: flex;
 			flex-direction: row;
@@ -171,17 +170,19 @@
 				box-shadow: 0 10px 10px #eee;
 				margin: 0 0.5rem;
 				border-radius: 50%;
+				color: darken(#ff4500, 5%);
 				&:hover {
 					cursor: pointer;
 					background: $color-orange;
 					padding: 0.5rem;
 					color: #fff;
 					box-shadow: 0 10px 10px darken($color-orange, 10%);
-					transform: translateY(.3vh);
+					transform: translateY(0.3vh);
 				}
 			}
 			& p {
 				font-size: 0.9rem;
+				color:#666;
 			}
 		}
 	}

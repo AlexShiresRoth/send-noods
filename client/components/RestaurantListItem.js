@@ -143,6 +143,7 @@ export default class RestaurantListItem extends React.Component {
 						<div className="ramen__title">
 							{this.props.spot.name}
 							<div className="ramen__title--toggle">
+								<p>{this.state.showMore ? 'Hide Details' : 'Show Details'}</p>
 								<i
 									class={`${
 										this.state.showMore
@@ -151,24 +152,23 @@ export default class RestaurantListItem extends React.Component {
 									}`}
 									onClick={() => this.toggleCardDetails()}
 								/>
-								<p>{this.state.showMore ? 'Hide Details' : 'Show Details'}</p>
 							</div>
 						</div>
 					</div>
-					<div className={`list--item--middle ${this.state.showMore ? " " : 'hidden'}`}>
-						<div className={`rating__container ${this.state.showMore ? " ": 'hidden'}`}>
+					<div className={`list--item--middle ${this.state.showMore ? ' ' : 'hidden'}`}>
+						<div className={`rating__container ${this.state.showMore ? ' ' : 'hidden'}`}>
 							<div className="rating__container--stars">User Rating:{getRating(this.props.rating)}</div>
 							<div className="rating__container--total">({this.props.ratingTotal})</div>
 						</div>
-						<div className={`address__container ${this.state.showMore ? " " : 'hidden'}`}>
+						<div className={`address__container ${this.state.showMore ? ' ' : 'hidden'}`}>
 							<p>Address: {this.props.spot.formatted_address}</p>
 						</div>
 					</div>
-					<div className={`list--item--bottom ${this.state.showMore ? " " : 'hidden'}`}>
-						<div className={`price__container ${this.state.showMore ? " " : 'hidden'}`}>
+					<div className={`list--item--bottom ${this.state.showMore ? ' ' : 'hidden'}`}>
+						<div className={`price__container ${this.state.showMore ? ' ' : 'hidden'}`}>
 							Price:<span>{getPrice(this.props.price)}</span>
 						</div>
-						<div className={`hours__container ${this.state.showMore ? " " : 'hidden'}`}>
+						<div className={`hours__container ${this.state.showMore ? ' ' : 'hidden'}`}>
 							{getOpenTime(this.props.open)}
 						</div>
 						<div className="favorite">
