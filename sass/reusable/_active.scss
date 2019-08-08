@@ -1,4 +1,15 @@
 .hidden {
 	max-height: 0px;
-	display: none;
+	opacity: 0;
+	visibility: hidden;
+}
+
+.animate-box-shadow {
+	animation-name: boxShadowFlash;
+	animation-duration: 0.7s;
+	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+	animation-fill-mode: forwards;
+	&:hover {
+		transform: translateY(0.3vh);
+	}
 }

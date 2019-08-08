@@ -34,31 +34,35 @@
 			box-shadow: 0 20px 20px #eeee;
 		}
 		&--top {
+			visibility: visible;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-around;
 			width: 100%;
 			border-bottom: 1px solid #eee;
-			transition: all 0.5s ease-in-out;
 			max-height: 200rem;
 		}
 		&--middle {
+			visibility: visible;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
 			width: 100%;
+			opacity: 1;
 			border-bottom: 1px solid #eee;
-			transition: all 0.5s ease-in-out;
+			transition: max-height 0.3s 0s ease-in-out, opacity 0.2s 0s ease-in-out;
 			max-height: 200rem;
 		}
 		&--bottom {
+			visibility: visible;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
 			width: 100%;
 			justify-content: space-around;
-			transition: all 0.5s ease-in-out;
+			opacity: 1;
+			transition: max-height 0.3s 0s ease-in-out, opacity 0.2s 0s ease-in-out;
 			max-height: 200rem;
 		}
 
@@ -170,10 +174,10 @@
 				&:hover {
 					cursor: pointer;
 					background: $color-orange;
-					border-radius: 20px;
 					padding: 0.5rem;
 					color: #fff;
 					box-shadow: 0 10px 10px darken($color-orange, 10%);
+					transform: translateY(.3vh);
 				}
 			}
 			& p {

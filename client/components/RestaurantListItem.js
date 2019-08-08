@@ -133,6 +133,7 @@ export default class RestaurantListItem extends React.Component {
 				</div>
 			);
 		}
+
 		//return mobile view
 		else {
 			return (
@@ -143,27 +144,31 @@ export default class RestaurantListItem extends React.Component {
 							{this.props.spot.name}
 							<div className="ramen__title--toggle">
 								<i
-									class={`${this.state.showMore ? 'fas fa-chevron-up' : 'fas fa-chevron-down'}`}
+									class={`${
+										this.state.showMore
+											? 'fas fa-chevron-up animate-box-shadow'
+											: 'fas fa-chevron-down '
+									}`}
 									onClick={() => this.toggleCardDetails()}
 								/>
 								<p>{this.state.showMore ? 'Hide Details' : 'Show Details'}</p>
 							</div>
 						</div>
 					</div>
-					<div className={`list--item--middle ${this.state.showMore ? null : 'hidden'}`}>
-						<div className={`rating__container ${this.state.showMore ? null : 'hidden'}`}>
+					<div className={`list--item--middle ${this.state.showMore ? " " : 'hidden'}`}>
+						<div className={`rating__container ${this.state.showMore ? " ": 'hidden'}`}>
 							<div className="rating__container--stars">User Rating:{getRating(this.props.rating)}</div>
 							<div className="rating__container--total">({this.props.ratingTotal})</div>
 						</div>
-						<div className={`address__container ${this.state.showMore ? null : 'hidden'}`}>
+						<div className={`address__container ${this.state.showMore ? " " : 'hidden'}`}>
 							<p>Address: {this.props.spot.formatted_address}</p>
 						</div>
 					</div>
-					<div className={`list--item--bottom ${this.state.showMore ? null : 'hidden'}`}>
-						<div className={`price__container ${this.state.showMore ? null : 'hidden'}`}>
+					<div className={`list--item--bottom ${this.state.showMore ? " " : 'hidden'}`}>
+						<div className={`price__container ${this.state.showMore ? " " : 'hidden'}`}>
 							Price:<span>{getPrice(this.props.price)}</span>
 						</div>
-						<div className={`hours__container ${this.state.showMore ? null : 'hidden'}`}>
+						<div className={`hours__container ${this.state.showMore ? " " : 'hidden'}`}>
 							{getOpenTime(this.props.open)}
 						</div>
 						<div className="favorite">

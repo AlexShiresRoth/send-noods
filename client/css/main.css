@@ -376,29 +376,33 @@ select {
     .list--item:hover {
       box-shadow: 0 20px 20px #eeee; }
     .list--item--top {
+      visibility: visible;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
       width: 100%;
       border-bottom: 1px solid #eee;
-      transition: all 0.5s ease-in-out;
       max-height: 200rem; }
     .list--item--middle {
+      visibility: visible;
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 100%;
+      opacity: 1;
       border-bottom: 1px solid #eee;
-      transition: all 0.5s ease-in-out;
+      transition: max-height 0.3s 0s ease-in-out, opacity 0.2s 0s ease-in-out;
       max-height: 200rem; }
     .list--item--bottom {
+      visibility: visible;
       display: flex;
       flex-direction: row;
       align-items: center;
       width: 100%;
       justify-content: space-around;
-      transition: all 0.5s ease-in-out;
+      opacity: 1;
+      transition: max-height 0.3s 0s ease-in-out, opacity 0.2s 0s ease-in-out;
       max-height: 200rem; }
     .list--item span {
       color: goldenrod; }
@@ -490,12 +494,41 @@ select {
         .ramen__title--toggle i:hover {
           cursor: pointer;
           background: #ff4500;
-          border-radius: 20px;
           padding: 0.5rem;
           color: #fff;
-          box-shadow: 0 10px 10px #cc3700; }
+          box-shadow: 0 10px 10px #cc3700;
+          transform: translateY(0.3vh); }
       .ramen__title--toggle p {
         font-size: 0.9rem; } }
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10rem;
+  height: 10rem;
+  border: 10px dashed #ff4500;
+  border-radius: 50%;
+  animation: 7s spin linear infinite; }
+
+.hidden {
+  max-height: 0px;
+  opacity: 0;
+  visibility: hidden; }
+
+.animate-box-shadow {
+  animation-name: boxShadowFlash;
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode: forwards; }
+  .animate-box-shadow:hover {
+    transform: translateY(0.3vh); }
 
 @keyframes spin {
   0% { }
@@ -535,25 +568,22 @@ select {
     transform: rotate(360deg);
     border: 10px dashed #ffb599; } }
 
-.loader-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
+@keyframes borderRadius {
+  0% {
+    border-radius: 100%; }
+  100% {
+    border-radius: 50%; } }
 
-.loader {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 10rem;
-  height: 10rem;
-  border: 10px dashed #ff4500;
-  border-radius: 50%;
-  animation: 7s spin linear infinite; }
-
-.hidden {
-  max-height: 0px;
-  display: none; }
+@keyframes boxShadowFlash {
+  0% {
+    box-shadow: 0 10px 10px #d5d5d5;
+    transform: translateY(0.6vh); }
+  50% {
+    box-shadow: 0 20px 10px #d5d5d5;
+    transform: translateY(-0.5vh); }
+  100% {
+    box-shadow: 0 10px 10px #d5d5d5;
+    transform: translateY(0vh); } }
 
 * {
   padding: 0;
