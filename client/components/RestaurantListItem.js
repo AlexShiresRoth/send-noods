@@ -12,19 +12,21 @@ export default class RestaurantListItem extends React.Component {
 		};
 	}
 	//change to mobile view depending on screen width
-	handleScreenSize() {
+	handleScreenSize = () => {
 		this.setState({ isMobile: window.innerWidth < 600 });
-	}
+	};
 	componentDidMount() {
 		this.handleScreenSize();
 		window.addEventListener('resize', this.handleScreenSize);
+	}
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.handleScreenSize);
 	}
 	componentDidUpdate(prevProps, prevState) {
 		if (this.state.isMobile !== prevState.isMobile) {
 			window.addEventListener('resize', this.handleScreenSize);
 		}
 	}
-
 	toggleCardDetails() {
 		if (!this.state.showMore) {
 			this.setState({ showMore: true });

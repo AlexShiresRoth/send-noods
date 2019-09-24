@@ -24,7 +24,6 @@ export default class Marker extends React.Component {
 
 	showInfo = () => {
 		if (this.state.hovered) {
-			console.log(this.props.locationInfo);
 			const lat = this.props.locationInfo.geometry.lat;
 			const lng = this.props.locationInfo.geometry.lng;
 			return (

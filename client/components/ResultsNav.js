@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { FavoriteList } from './FavoriteList';
 
 import '../css/main.css';

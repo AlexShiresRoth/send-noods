@@ -17,7 +17,7 @@ const RamenList = props => {
 				ratingTotal={spot.user_ratings_total}
 				price={spot.price_level}
 				photos={ramenPhotoArray}
-				open={spot.opening_hours.open_now}
+				open={spot.opening_hours ? spot.opening_hours.open_now : (spot.opening_hours = { open_now: 'n/a' })}
 				addFavorite={props.addFavorite}
 				isFavorited={props.favorites}
 			/>
