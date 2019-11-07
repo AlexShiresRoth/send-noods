@@ -19,7 +19,7 @@ const Form = props => {
 			</div>
 			<div className="form__container--search">
 				<button className="clear__btn" onClick={props.onClick}>
-					<i class="fas fa-window-close" />
+					<i className="fas fa-window-close" />
 				</button>
 				<form onSubmit={restaurantQuery}>
 					<div className="input__row">

@@ -6,10 +6,10 @@ import '../css/main.css';
 const RamenList = props => {
 	const ramenPhotoArray = ['ramen0.jpg', 'ramen1.jpg', 'ramen2.jpg'];
 
-	const restaurants = props.restaurants.map(spot => {
+	const restaurants = props.restaurants.map((spot, i) => {
 		return (
 			<RestaurantListItem
-				key={spot.id}
+				key={i}
 				lat={spot.geometry.location.lat}
 				lng={spot.geometry.location.lng}
 				spot={spot}

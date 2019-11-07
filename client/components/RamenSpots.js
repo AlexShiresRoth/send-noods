@@ -11,16 +11,18 @@ class RamenSpots extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { lat: null, lng: null, userLat: null, userLng: null };
-	}
-
-	static defaultProps = {
-		center: {
+		this.state = {
 			lat: null,
 			lng: null,
-		},
-		zoom: 12,
-	};
+			userLat: null,
+			userLng: null,
+			center: {
+				lat: null,
+				lng: null,
+			},
+			zoom: 12,
+		};
+	}
 
 	componentDidMount() {
 		window.navigator.geolocation.getCurrentPosition(
@@ -63,8 +65,8 @@ class RamenSpots extends React.Component {
 			<div className="middle__container">
 				<GoogleMapReact
 					bootstrapURLKeys={{ key: maps_api_key }}
-					defaultCenter={{ lat: this.state.lat, lng: this.state.lng }}
-					defaultZoom={this.props.zoom}
+					defaultCenter={{ ...this.state.center }}
+					defaultZoom={this.state.zoom}
 					center={{ lat: this.state.lat, lng: this.state.lng }}
 					yesIWantToUseGoogleMapApiInternals
 				>

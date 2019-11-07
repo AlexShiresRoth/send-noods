@@ -1,27 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import "../css/main.css";
+import '../css/main.css';
 
-//props passed from resultsNav 
 export const FavoriteList = props => {
-  const Favorites = props.favorites.map(favorite => {
-    const getData = () => {
-      return favorite;
-    };
-    return (
-      <li className="favorite__list--item">
-        <i
-          class="far fa-times-circle"
-          onClick={e => props.removeFavorite(e, getData())}
-        />
-        <p>{favorite}</p>
-      </li>
-    );
-  });
+	const Favorites = props.favorites.map(favorite => {
+		const getData = () => {
+			return favorite;
+		};
+		return (
+			<li className="favorite__list--item">
+				<i class="far fa-times-circle" onClick={e => props.removeFavorite(e, getData())} />
+				<p>{favorite}</p>
+			</li>
+		);
+	});
 
-  return (
-    <div>
-      <ul className="favorite__list">{Favorites}</ul>
-    </div>
-  );
+	return (
+		<div>
+			<ul className="favorite__list">{Favorites}</ul>
+		</div>
+	);
 };
