@@ -10,7 +10,9 @@ const LocationMarker = ({ text }) => {
 	const showUserInfo = () => {
 		return <p>{text}</p>;
 	};
-	const removeUserInfo = () => {};
+	const removeUserInfo = () => {
+		console.log('Leaving user info');
+	};
 
 	return (
 		<div onMouseEnter={() => showUserInfo()} onMouseLeave={() => removeUserInfo()}>

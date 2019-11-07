@@ -2,7 +2,6 @@ import React, { Suspense, lazy } from 'react';
 import axios from 'axios';
 import Loader from './Loader';
 import { api_key } from '../../config/keys';
-import { restaurantSearch } from './js/index';
 import '../css/main.css';
 
 const SideBar = lazy(() => import('./SideBar'));
