@@ -43,6 +43,7 @@ class App extends React.Component {
 
 	resaurantQuery = async event => {
 		event.preventDefault();
+
 		this.setState({ loading: true, restaurantsArr: [] });
 
 		if (this.state.location !== '') {
@@ -90,7 +91,6 @@ class App extends React.Component {
 	};
 	sortResults = event => {
 		event.preventDefault();
-		console.log(event.target);
 		let results = this.state.restaurantsArr;
 
 		let unFiltered = this.state.unFiltered;

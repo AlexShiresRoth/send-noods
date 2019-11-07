@@ -9,7 +9,7 @@ const RamenList = props => {
 	const restaurants = props.restaurants.map((spot, i) => {
 		return (
 			<RestaurantListItem
-				key={i}
+				id={i}
 				lat={spot.geometry.location.lat}
 				lng={spot.geometry.location.lng}
 				spot={spot}

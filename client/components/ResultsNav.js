@@ -28,7 +28,7 @@ export default class ResultsNav extends React.Component {
 		this.setState({ hovered: false });
 	}
 	handleScreenSize() {
-		this.setState({ isMobile: window.innerWidth < 600 });
+		this.setState({ isMobile: window.innerWidth < 850 });
 	}
 
 	componentDidMount() {
@@ -55,7 +55,7 @@ export default class ResultsNav extends React.Component {
 						onMouseLeave={() => this.setHoverLeave()}
 					>
 						<h2>Favorite Spots</h2>
-						<i class="fas fa-chevron-down" />
+						<i className="fas fa-chevron-down" />
 						{this.state.hovered && this.props.favorited ? (
 							<FavoriteList favorites={this.state.favorites} removeFavorite={this.props.removeFavorite} />
 						) : null}
@@ -92,7 +92,7 @@ export default class ResultsNav extends React.Component {
 						onMouseLeave={() => this.setHoverLeave()}
 					>
 						<h2>Favorite Spots</h2>
-						<i class="fas fa-chevron-down" />
+						<i className="fas fa-chevron-down" />
 						{this.state.hovered && this.props.favorited ? (
 							<FavoriteList favorites={this.state.favorites} removeFavorite={this.props.removeFavorite} />
 						) : null}

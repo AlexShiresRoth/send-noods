@@ -52,9 +52,14 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-around;
-
+		& form {
+			& select {
+				padding: 0.3rem;
+				border: 3px solid $color-orange;
+			}
+		}
 		& button {
-			padding: 0.61rem;
+			padding: 0.5rem;
 			background: $color-orange;
 			border: 1px solid $color-orange;
 			transition: all 0.3s ease;
@@ -79,24 +84,27 @@
 .ramen-popup {
 	background: #fff;
 	border-radius: 5px;
-	box-shadow: 0 5px 10px #eee;
+	box-shadow: 0 3px 3px darken(#eee, 30%);
 	display: flex;
-	min-width: 5rem;
+	min-width: 8rem;
 	flex-direction: column;
 	justify-content: space-around;
-	padding: 1rem;
 	color: rgb(139, 134, 134);
-	overflow-y: scroll;
+	top: -300%;
+	z-index: 999999;
 	& p {
-		font-size: 0.9rem;
+		font-size: 1rem;
 		color: $color-orange;
 		margin: 0.5rem;
+		border-bottom: 0.5px solid #eee;
+		padding: 0.3rem;
 	}
 	& a {
 		color: dodgerblue;
 		text-decoration: none;
-		font-size: 0.9rem;
-		margin: 0.5rem;
+		font-size: 1rem;
+		margin: 0.3rem;
+		padding: 0.3rem;
 	}
 }
 

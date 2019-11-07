@@ -24,13 +24,14 @@ export default class Marker extends React.Component {
 
 	showInfo = () => {
 		if (this.state.hovered) {
-			const lat = this.props.locationInfo.geometry.lat;
-			const lng = this.props.locationInfo.geometry.lng;
+			const lat = this.props.locationInfo.geometry.location.lat;
+			const lng = this.props.locationInfo.geometry.location.lng;
+			const place_id = this.props.locationInfo.place_id;
 			return (
 				<div className="ramen-popup" style={{ position: 'absolute' }}>
 					<p>{this.props.locationInfo.name}</p>
-					<a href={`https://maps.google.com/?ll=${lat},${lng}`}>
-						{this.props.locationInfo.formatted_address.substring(30)}...
+					<a href={`https://www.google.com/maps/dir/?api=1&query=${lat},${lng}&query_place_id=${place_id}`}>
+						{this.props.locationInfo.formatted_address.substring(0, 40)}...
 					</a>
 				</div>
 			);

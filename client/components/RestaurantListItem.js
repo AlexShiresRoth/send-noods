@@ -11,9 +11,68 @@ export default class RestaurantListItem extends React.Component {
 			showMore: false,
 		};
 	}
+
+	//toggle ramen card info in mobile
+	toggleCardDetails() {
+		if (!this.state.showMore) {
+			this.setState({ showMore: true });
+		} else {
+			this.setState({ showMore: false });
+		}
+	}
+	//render star rating
+	getRating = rating => {
+		let newArr = [];
+
+		for (let i = 0; i < rating; i++) {
+			newArr.push(<i className="fas fa-star" />);
+		}
+
+		return newArr;
+	};
+
+	//render price symbol
+	getPrice = price => {
+		let newArr = [];
+
+		if (price) {
+			if (price >= 0) {
+				newArr.push(<i className="fas fa-dollar-sign" />);
+			}
+		} else if (!price) {
+			let jsxItem = <p style={{ color: '#000' }}>n/a</p>;
+			newArr.push(jsxItem);
+		}
+
+		return newArr;
+	};
+
+	// determine if restaurant is open or not
+	getOpenTime = open => {
+		if (open) {
+			return <p style={{ color: 'green' }}>Open</p>;
+		} else {
+			return <p style={{ color: 'red' }}>Closed</p>;
+		}
+	};
+
+	getPhotos = () => {
+		let photoArr = this.props.photos;
+		let length = this.props.photos.length;
+		let random = Math.floor(Math.random() * length);
+		return (
+			<figure className="image__item">
+				<img src={require(`../images/${photoArr[random]}`)} alt="Ramen" />
+			</figure>
+		);
+	};
+
+	getdata = () => {
+		return this.props.spot;
+	};
 	//change to mobile view depending on screen width
 	handleScreenSize = () => {
-		this.setState({ isMobile: window.innerWidth < 600 });
+		this.setState({ isMobile: window.innerWidth < 850 });
 	};
 	componentDidMount() {
 		this.handleScreenSize();
@@ -27,66 +86,8 @@ export default class RestaurantListItem extends React.Component {
 			window.addEventListener('resize', this.handleScreenSize);
 		}
 	}
-	toggleCardDetails() {
-		if (!this.state.showMore) {
-			this.setState({ showMore: true });
-		} else {
-			this.setState({ showMore: false });
-		}
-	}
 
 	render() {
-		//render star rating
-		const getRating = rating => {
-			let newArr = [];
-
-			for (let i = 0; i < rating; i++) {
-				newArr.push(<i className="fas fa-star" />);
-			}
-
-			return newArr;
-		};
-
-		//render price symbol
-		const getPrice = price => {
-			let newArr = [];
-
-			if (price) {
-				if (price >= 0) {
-					newArr.push(<i className="fas fa-dollar-sign" />);
-				}
-			} else if (!price) {
-				let jsxItem = <p style={{ color: '#000' }}>n/a</p>;
-				newArr.push(jsxItem);
-			}
-
-			return newArr;
-		};
-
-		// determine if restaurant is open or not
-		const getOpenTime = open => {
-			if (open) {
-				return <p style={{ color: 'green' }}>Open</p>;
-			} else {
-				return <p style={{ color: 'red' }}>Closed</p>;
-			}
-		};
-
-		const getPhotos = () => {
-			let photoArr = this.props.photos;
-			let length = this.props.photos.length;
-			let random = Math.floor(Math.random() * length);
-			return (
-				<figure className="image__item">
-					<img src={require(`../images/${photoArr[random]}`)} alt="Ramen" />
-				</figure>
-			);
-		};
-
-		const getdata = () => {
-			return this.props.spot.name;
-		};
-
 		const styles = {
 			background: '#ff4500',
 			borderRadius: '50%',
@@ -105,26 +106,26 @@ export default class RestaurantListItem extends React.Component {
 
 		if (!this.state.isMobile) {
 			return (
-				<div className="list--item">
-					<div className="img-container">{getPhotos()}</div>
+				<div className="list--item" key={this.props.id}>
+					<div className="img-container">{this.getPhotos()}</div>
 					<div className="ramen__title">{this.props.spot.name}</div>
 					<div className="rating__container">
-						<div className="rating__container--stars">User Rating:{getRating(this.props.rating)}</div>
+						<div className="rating__container--stars">User Rating:{this.getRating(this.props.rating)}</div>
 						<div className="rating__container--total">({this.props.ratingTotal})</div>
 					</div>
 					<hr />
 					<div className="price__container">
-						Price:<span>{getPrice(this.props.price)}</span>
+						Price:<span>{this.getPrice(this.props.price)}</span>
 					</div>
 					<hr />
-					<div className="hours__container">{getOpenTime(this.props.open)}</div>
+					<div className="hours__container">{this.getOpenTime(this.props.open)}</div>
 					<div className="address__container">
 						<p>Address: {this.props.spot.formatted_address}</p>
 						<div className="address__container--favorite">
 							<i
-								class="far fa-heart"
+								className="far fa-heart"
 								onClick={e => {
-									this.props.addFavorite(e, getdata());
+									this.props.addFavorite(e, this.getdata());
 									addStyle(e);
 								}}
 								style={this.props.isFavorited.includes(this.props.spot.name) ? styles : null}
@@ -139,9 +140,9 @@ export default class RestaurantListItem extends React.Component {
 		//return mobile view
 		else {
 			return (
-				<div className="list--item">
+				<div className="list--item" key={this.props.id}>
 					<div className="list--item--top">
-						<div className="img-container">{getPhotos()}</div>
+						<div className="img-container">{this.getPhotos()}</div>
 						<div className="ramen__title">
 							{this.props.spot.name}
 							<div className="ramen__title--toggle">
@@ -159,7 +160,9 @@ export default class RestaurantListItem extends React.Component {
 					</div>
 					<div className={`list--item--middle ${this.state.showMore ? ' ' : 'hidden'}`}>
 						<div className={`rating__container ${this.state.showMore ? ' ' : 'hidden'}`}>
-							<div className="rating__container--stars">User Rating:{getRating(this.props.rating)}</div>
+							<div className="rating__container--stars">
+								User Rating:{this.getRating(this.props.rating)}
+							</div>
 							<div className="rating__container--total">({this.props.ratingTotal})</div>
 						</div>
 						<div className={`address__container ${this.state.showMore ? ' ' : 'hidden'}`}>
@@ -168,16 +171,16 @@ export default class RestaurantListItem extends React.Component {
 					</div>
 					<div className={`list--item--bottom ${this.state.showMore ? ' ' : 'hidden'}`}>
 						<div className={`price__container ${this.state.showMore ? ' ' : 'hidden'}`}>
-							Price:<span>{getPrice(this.props.price)}</span>
+							Price:<span>{this.getPrice(this.props.price)}</span>
 						</div>
 						<div className={`hours__container ${this.state.showMore ? ' ' : 'hidden'}`}>
-							{getOpenTime(this.props.open)}
+							{this.getOpenTime(this.props.open)}
 						</div>
 						<div className="favorite">
 							<i
-								class="far fa-heart"
+								className="far fa-heart"
 								onClick={e => {
-									this.props.addFavorite(e, getdata());
+									this.props.addFavorite(e, this.getdata());
 									addStyle(e);
 								}}
 								style={this.props.isFavorited.includes(this.props.spot.name) ? styles : null}
