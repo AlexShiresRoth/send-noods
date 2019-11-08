@@ -11,12 +11,58 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    margin: 0 1rem; }
+  .form__container--dark-theme-toggle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%; }
+    .form__container--dark-theme-toggle--dark {
+      background: #e63e00;
+      box-shadow: 0 2px 2px #cc3700;
+      border: 0;
+      transition: all 0.3s ease-in-out;
+      border-radius: 50%; }
+      .form__container--dark-theme-toggle--dark:focus {
+        border-radius: 50%;
+        outline: 0px solid #cc3700; }
+      .form__container--dark-theme-toggle--dark:hover {
+        background: #f2f2f2;
+        box-shadow: 0 2px 2px #e6e6e6;
+        cursor: pointer; }
+      .form__container--dark-theme-toggle--dark:hover i {
+        color: #cc3700; }
+      .form__container--dark-theme-toggle--dark i {
+        color: #f3f3f3f3;
+        font-size: 1.2rem;
+        padding: 1rem; }
+    .form__container--dark-theme-toggle--light {
+      background: transparent;
+      box-shadow: 0 2px 2px #d5d5d5;
+      border: 0;
+      transition: all 0.3s ease-in-out;
+      border-radius: 50%; }
+      .form__container--dark-theme-toggle--light:focus {
+        border-radius: 50%;
+        outline: 0px solid #cc3700; }
+      .form__container--dark-theme-toggle--light:hover {
+        background: #cc3700;
+        box-shadow: 0 2px 2px #b33000;
+        cursor: pointer; }
+      .form__container--dark-theme-toggle--light:hover i {
+        color: #f3f3f3f3; }
+      .form__container--dark-theme-toggle--light i {
+        color: #e63e00;
+        font-size: 1.2rem;
+        padding: 1rem; }
 
 .logo__container {
   display: flex;
   align-items: center;
-  color: #f3f3f3f3; }
+  color: #f3f3f3f3;
+  flex: 2; }
   .logo__container h1 {
     text-transform: uppercase;
     color: #666;
@@ -41,10 +87,10 @@
 .search__btn {
   color: #fff;
   padding: 1.1rem;
-  border: 1px solid #ff4500;
+  border: 1px solid #e63e00;
   border-top-right-radius: 150px;
   border-bottom-right-radius: 150px;
-  background-color: #ff4500;
+  background-color: #e63e00;
   transition: 0.2s linear; }
   .search__btn:hover, .search__btn:active {
     cursor: pointer;
@@ -57,10 +103,10 @@
 .clear__btn {
   color: #fff;
   padding: 1.1rem;
-  border: 1px solid #ff4500;
+  border: 1px solid #e63e00;
   border-top-left-radius: 150px;
   border-bottom-left-radius: 150px;
-  background-color: #ff4500;
+  background-color: #e63e00;
   transition: 0.2s linear; }
   .clear__btn:hover, .clear__btn:active {
     cursor: pointer;
@@ -102,7 +148,7 @@
     .results__nav--left h2 {
       color: #666; }
     .results__nav--left i {
-      color: #ff4500;
+      color: #e63e00;
       font-size: 1.5rem;
       margin: 0 0.5rem; }
   .results__nav--middle {
@@ -117,19 +163,19 @@
     justify-content: space-around; }
     .results__nav--right form select {
       padding: 0.3rem;
-      border: 3px solid #ff4500; }
+      border: 3px solid #e63e00; }
     .results__nav--right button {
       padding: 0.5rem;
-      background: #ff4500;
-      border: 1px solid #ff4500;
+      background: #e63e00;
+      border: 1px solid #e63e00;
       transition: all 0.3s ease;
       border-top-right-radius: 5px;
       border-bottom-right-radius: 5px;
       color: #fff; }
       .results__nav--right button:hover {
         cursor: pointer;
-        background: #992900;
-        border: 1px solid #992900; }
+        background: #802300;
+        border: 1px solid #802300; }
     .results__nav--right h2 {
       color: #666;
       margin-right: 0.3rem; }
@@ -143,11 +189,12 @@
   flex-direction: column;
   justify-content: space-around;
   color: #8b8686;
-  top: -300%;
-  z-index: 999999; }
+  top: -550%;
+  z-index: 999999;
+  position: absolute; }
   .ramen-popup p {
     font-size: 1rem;
-    color: #ff4500;
+    color: #e63e00;
     margin: 0.5rem;
     border-bottom: 0.5px solid #eee;
     padding: 0.3rem; }
@@ -162,14 +209,13 @@ select {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   padding: 0.52rem;
-  border: 1px solid #ff4500;
+  border: 1px solid #e63e00;
   margin: 0 0 0 0.5rem; }
 
 .ramen__list--container {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   padding: 7rem 4rem;
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -194,18 +240,13 @@ select {
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-  box-shadow: 0 10px 10px #eeeeee;
+  box-shadow: 0 5px 5px #eeeeee;
   background: #fff;
   width: 15rem;
   transition: all 0.2s ease-in-out;
   padding: 0 1rem;
-  color: #ff4500;
+  color: #e63e00;
   color: #666; }
-  .list--item hr {
-    height: 0;
-    border-top: 1px solid #eee;
-    width: 100%;
-    margin: 0.5rem 0; }
   .list--item p:last-child {
     color: #666;
     margin: 0.5rem 0; }
@@ -237,7 +278,12 @@ select {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+  width: 100%; }
 
 .hours__container {
   display: flex;
@@ -259,14 +305,14 @@ select {
     .address__container--favorite p {
       margin: 0.5rem; }
     .address__container--favorite i {
-      color: #ff4500;
+      color: #e63e00;
       padding: 0.5rem;
       border-radius: 50%;
       box-shadow: 0 10px 10px #eee;
       transition: all 0.4s ease-in-out; }
       .address__container--favorite i:hover {
         cursor: pointer;
-        background: #ff4500;
+        background: #e63e00;
         border-radius: 50%;
         box-shadow: 0 10px 10px #eee;
         color: #fff;
@@ -315,7 +361,7 @@ select {
     padding: 0.5rem;
     transition: all 0.4s ease-in-out; }
     .favorite__list--item:hover {
-      background: #ff4500;
+      background: #e63e00;
       color: #fff;
       opacity: 0.9;
       cursor: pointer;
@@ -323,7 +369,7 @@ select {
     .favorite__list--item:hover i {
       color: #fff; }
     .favorite__list--item i {
-      color: #ff4500; }
+      color: #e63e00; }
       .favorite__list--item i:hover {
         cursor: pointer; }
     .favorite__list--item:hover p > a {
@@ -333,7 +379,7 @@ select {
       color: #fff; }
       .favorite__list--item p a {
         text-decoration: none;
-        color: #ff4500;
+        color: #e63e00;
         font-weight: 500;
         font-size: 1rem; }
 
@@ -397,7 +443,6 @@ select {
       align-items: center;
       justify-content: space-around;
       width: 100%;
-      border-bottom: 1px solid #eee;
       max-height: 200rem; }
     .list--item--middle {
       visibility: visible;
@@ -406,6 +451,7 @@ select {
       align-items: center;
       width: 100%;
       opacity: 1;
+      border-top: 1px solid #eee;
       border-bottom: 1px solid #eee;
       transition: max-height 0.3s 0s ease-in-out, opacity 0.2s 0s ease-in-out;
       max-height: 200rem; }
@@ -443,7 +489,8 @@ select {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center; }
+    justify-content: center;
+    border: 0; }
   .hours__container {
     display: flex;
     flex-direction: row;
@@ -463,14 +510,14 @@ select {
     .favorite p {
       margin: 0.5rem; }
     .favorite i {
-      color: #ff4500;
+      color: #e63e00;
       padding: 0.5rem;
       border-radius: 50%;
       box-shadow: 0 10px 10px #eee;
       transition: all 0.4s ease-in-out; }
       .favorite i:hover {
         cursor: pointer;
-        background: #ff4500;
+        background: #e63e00;
         border-radius: 50%;
         box-shadow: 0 10px 10px #eee;
         color: #fff;
@@ -508,10 +555,10 @@ select {
         color: #e63e00; }
         .ramen__title--toggle i:hover {
           cursor: pointer;
-          background: #ff4500;
+          background: #e63e00;
           padding: 0.5rem;
           color: #fff;
-          box-shadow: 0 10px 10px #cc3700;
+          box-shadow: 0 10px 10px #b33000;
           transform: translateY(0.3vh); }
       .ramen__title--toggle p {
         font-size: 0.9rem;
@@ -545,6 +592,24 @@ select {
   animation-fill-mode: forwards; }
   .animate-box-shadow:hover {
     transform: translateY(0.3vh); }
+
+.dark {
+  background: #333;
+  color: #999;
+  box-shadow: 0 4px 4px #1a1a1a;
+  border: 1px solid #333; }
+
+.dark-accent {
+  background: #3b3b3b;
+  color: #777;
+  box-shadow: 0 4px 4px #262626; }
+  .dark-accent:hover {
+    box-shadow: 0 6px 6px #212121; }
+
+.dark-borders {
+  border: 0;
+  border-top: 1px solid #4d4d4d;
+  border-bottom: 1px solid #4d4d4d; }
 
 @keyframes spin {
   0% { }

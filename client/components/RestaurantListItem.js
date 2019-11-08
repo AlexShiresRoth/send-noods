@@ -1,8 +1,8 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
 import '../css/main.css';
 
-export default class RestaurantListItem extends React.Component {
+class RestaurantListItem extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -106,18 +106,16 @@ export default class RestaurantListItem extends React.Component {
 
 		if (!this.state.isMobile) {
 			return (
-				<div className="list--item" key={this.props.id}>
+				<div className={this.props.mode.mode ? 'list--item dark-accent' : 'list--item'} key={this.props.id}>
 					<div className="img-container">{this.getPhotos()}</div>
 					<div className="ramen__title">{this.props.spot.name}</div>
 					<div className="rating__container">
 						<div className="rating__container--stars">User Rating:{this.getRating(this.props.rating)}</div>
 						<div className="rating__container--total">({this.props.ratingTotal})</div>
 					</div>
-					<hr />
-					<div className="price__container">
+					<div className={this.props.mode.mode ? 'price__container dark-borders' : 'price__container'}>
 						Price:<span>{this.getPrice(this.props.price)}</span>
 					</div>
-					<hr />
 					<div className="hours__container">{this.getOpenTime(this.props.open)}</div>
 					<div className="address__container">
 						<p>Address: {this.props.spot.formatted_address}</p>
@@ -140,7 +138,7 @@ export default class RestaurantListItem extends React.Component {
 		//return mobile view
 		else {
 			return (
-				<div className="list--item" key={this.props.id}>
+				<div className={this.props.mode.mode ? 'list--item dark-accent' : 'list--item'} key={this.props.id}>
 					<div className="list--item--top">
 						<div className="img-container">{this.getPhotos()}</div>
 						<div className="ramen__title">
@@ -152,13 +150,19 @@ export default class RestaurantListItem extends React.Component {
 										this.state.showMore
 											? 'fas fa-chevron-up animate-box-shadow'
 											: 'fas fa-chevron-down '
-									}`}
+									} ${this.props.mode.mode ? 'dark-accent' : ''}`}
 									onClick={() => this.toggleCardDetails()}
 								/>
 							</div>
 						</div>
 					</div>
-					<div className={`list--item--middle ${this.state.showMore ? ' ' : 'hidden'}`}>
+					<div
+						className={
+							this.props.mode.mode
+								? `list--item--middle dark-borders ${this.state.showMore ? ' ' : 'hidden'}`
+								: `list--item--middle  ${this.state.showMore ? ' ' : 'hidden'}`
+						}
+					>
 						<div className={`rating__container ${this.state.showMore ? ' ' : 'hidden'}`}>
 							<div className="rating__container--stars">
 								User Rating:{this.getRating(this.props.rating)}
@@ -178,7 +182,7 @@ export default class RestaurantListItem extends React.Component {
 						</div>
 						<div className="favorite">
 							<i
-								className="far fa-heart"
+								className={this.props.mode.mode ? 'far fa-heart dark-accent' : 'far fa-heart'}
 								onClick={e => {
 									this.props.addFavorite(e, this.getdata());
 									addStyle(e);
@@ -192,3 +196,11 @@ export default class RestaurantListItem extends React.Component {
 		}
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		mode: state.mode,
+	};
+};
+
+export default connect(mapStateToProps)(RestaurantListItem);

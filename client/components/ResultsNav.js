@@ -1,9 +1,10 @@
 import React from 'react';
 import { FavoriteList } from './FavoriteList';
+import { connect } from 'react-redux';
 
 import '../css/main.css';
 
-export default class ResultsNav extends React.Component {
+class ResultsNav extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -48,7 +49,7 @@ export default class ResultsNav extends React.Component {
 	render() {
 		if (!this.props.loading && this.props.restaurants.length > 0) {
 			return (
-				<div className="results__nav">
+				<div className={this.props.mode.mode ? 'results__nav dark' : 'results__nav'}>
 					<div
 						className="results__nav--left"
 						onMouseEnter={() => this.setHover()}
@@ -85,7 +86,7 @@ export default class ResultsNav extends React.Component {
 			);
 		} else {
 			return (
-				<div className="results__nav">
+				<div className={this.props.mode.mode ? 'results__nav dark' : 'results__nav'}>
 					<div
 						className="results__nav--left"
 						onMouseEnter={() => this.setHover()}
@@ -117,3 +118,10 @@ export default class ResultsNav extends React.Component {
 		}
 	}
 }
+const mapStateToProps = state => {
+	return {
+		mode: state.mode,
+	};
+};
+
+export default connect(mapStateToProps)(ResultsNav);

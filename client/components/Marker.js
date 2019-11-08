@@ -1,7 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import '../css/main.css';
 
-export default class Marker extends React.Component {
+class Marker extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -28,7 +29,7 @@ export default class Marker extends React.Component {
 			const lng = this.props.locationInfo.geometry.location.lng;
 			const place_id = this.props.locationInfo.place_id;
 			return (
-				<div className="ramen-popup" style={{ position: 'absolute' }}>
+				<div className={this.props.mode.mode ? 'ramen-popup dark' : 'ramen-popup'}>
 					<p>{this.props.locationInfo.name}</p>
 					<a href={`https://www.google.com/maps/dir/?api=1&query=${lat},${lng}&query_place_id=${place_id}`}>
 						{this.props.locationInfo.formatted_address.substring(0, 40)}...
@@ -54,3 +55,11 @@ export default class Marker extends React.Component {
 		);
 	}
 }
+
+const mapStateToProps = state => {
+	return {
+		mode: state.mode,
+	};
+};
+
+export default connect(mapStateToProps)(Marker);

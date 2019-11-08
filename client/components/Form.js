@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { toggleMode } from './actions/mode';
 import '../css/main.css';
 
-const Form = props => {
+const Form = ({ formDefault, formChange, toggleMode, formValue }) => {
+	const [mode, setMode] = useState(false);
 	const restaurantQuery = event => {
-		props.formDefault(event);
+		formDefault(event);
 	};
 
 	const getInput = event => {
-		props.formChange(event);
+		formChange(event);
 	};
+
+	const onClick = () => {
+		setMode(!mode);
+		toggleMode(!mode);
+	};
+
 	return (
-		<div className="form__container">
+		<div className={mode ? 'form__container dark' : ' form__container '}>
 			<div className="logo__container">
 				<h1>Send N</h1>
 				<img src="../images/ramen.png" alt="Ramen Bowl Logo" />
@@ -18,7 +27,7 @@ const Form = props => {
 				<h1>ds</h1>
 			</div>
 			<div className="form__container--search">
-				<button className="clear__btn" onClick={props.onClick}>
+				<button className="clear__btn" onClick={onClick}>
 					<i className="fas fa-window-close" />
 				</button>
 				<form onSubmit={restaurantQuery}>
@@ -26,7 +35,7 @@ const Form = props => {
 						<input
 							className="input__row--input"
 							type="text"
-							value={props.formValue}
+							value={formValue}
 							onChange={getInput}
 							placeholder="Enter a City, Town or State"
 						/>
@@ -36,8 +45,27 @@ const Form = props => {
 					</div>
 				</form>
 			</div>
+			<div className="form__container--dark-theme-toggle">
+				<button
+					onClick={() => onClick()}
+					className={
+						mode ? 'form__container--dark-theme-toggle--dark' : 'form__container--dark-theme-toggle--light'
+					}
+				>
+					<i className="far fa-lightbulb"></i>
+				</button>
+			</div>
 		</div>
 	);
 };
 
-export default Form;
+const mapStateToProps = state => {
+	return {
+		mode: state.mode,
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	{ toggleMode }
+)(Form);

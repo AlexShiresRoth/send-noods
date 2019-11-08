@@ -1,6 +1,7 @@
 import React from 'react';
 import RamenList from './RamenList';
 import ResultsNav from './ResultsNav';
+import { connect } from 'react-redux';
 
 import '../css/main.css';
 
@@ -41,7 +42,7 @@ class SideBar extends React.Component {
 
 	render() {
 		return (
-			<div className="side-bar-left">
+			<div className={this.props.mode.mode ? 'side-bar-left dark' : 'side-bar-left'}>
 				<ResultsNav
 					input={this.props.input}
 					loading={this.props.loading}
@@ -63,4 +64,10 @@ class SideBar extends React.Component {
 		);
 	}
 }
-export default SideBar;
+const mapStateToProps = state => {
+	return {
+		mode: state.mode,
+	};
+};
+
+export default connect(mapStateToProps)(SideBar);

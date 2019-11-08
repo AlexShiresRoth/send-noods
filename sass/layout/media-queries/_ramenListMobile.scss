@@ -40,7 +40,6 @@
 			align-items: center;
 			justify-content: space-around;
 			width: 100%;
-			border-bottom: 1px solid #eee;
 			max-height: 200rem;
 		}
 		&--middle {
@@ -50,6 +49,7 @@
 			align-items: center;
 			width: 100%;
 			opacity: 1;
+			border-top: 1px solid #eee;
 			border-bottom: 1px solid #eee;
 			transition: max-height 0.3s 0s ease-in-out, opacity 0.2s 0s ease-in-out;
 			max-height: 200rem;
@@ -98,6 +98,7 @@
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
+		border: 0;
 	}
 	.hours__container {
 		display: flex;

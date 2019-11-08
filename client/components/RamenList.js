@@ -1,5 +1,6 @@
 import React from 'react';
 import RestaurantListItem from './RestaurantListItem';
+import { connect } from 'react-redux';
 
 import '../css/main.css';
 
@@ -26,7 +27,7 @@ const RamenList = props => {
 
 	if (props.loading && props.restaurants.length < 1) {
 		return (
-			<div className="ramen__list--container">
+			<div className={props.mode.mode ? 'ramen__list--container dark' : ' ramen__list--container'}>
 				<div className="loader-container">
 					<div className="loader" />
 				</div>
@@ -36,12 +37,19 @@ const RamenList = props => {
 
 	if (!props.loading && props.restaurants.length > 0) {
 		return (
-			<div className="ramen__list--container">
+			<div className={props.mode.mode ? 'ramen__list--container dark' : ' ramen__list--container'}>
 				<div className="ramen--list">{restaurants}</div>
 			</div>
 		);
 	}
 
-	return <div className="ramen__list--container" />;
+	return <div className={props.mode.mode ? 'ramen__list--container dark' : ' ramen__list--container'} />;
 };
-export default RamenList;
+
+const mapStateToProps = state => {
+	return {
+		mode: state.mode,
+	};
+};
+
+export default connect(mapStateToProps)(RamenList);
