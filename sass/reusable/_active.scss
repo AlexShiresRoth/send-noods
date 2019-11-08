@@ -14,21 +14,28 @@
 	}
 }
 .dark {
-	background: #333;
-	color: #999;
-	box-shadow: 0 4px 4px darken(#333, 10%);
-	border: 1px solid #333;
+	background: $dark-mode;
+	color: $color-white;
+	box-shadow: 0 4px 4px darken($dark-mode, 10%);
+	border: 1px solid #322;
 }
 .dark-accent {
-	background: lighten(#333, 3%);
-	color: #777;
-	box-shadow: 0 4px 4px darken(#333, 5%);
+	background: lighten($dark-mode, 3%);
+	color: darken(#f3f3f3, 5%);
+	box-shadow: 0 4px 4px darken($dark-mode, 5%);
 	&:hover {
-		box-shadow: 0 6px 6px darken(#333, 7%);
+		box-shadow: 0 6px 6px darken($dark-mode, 7%);
 	}
 }
 .dark-borders {
 	border: 0;
-	border-top: 1px solid lighten(#333, 10%);
-	border-bottom: 1px solid lighten(#333, 10%);
+	border-top: 1px solid lighten($dark-mode, 10%);
+	border-bottom: 1px solid lighten($dark-mode, 10%);
+}
+
+.favorited {
+	background: $color-orange;
+	border-radius: 50%;
+	color: $color-white;
+	padding: 0.5rem;
 }

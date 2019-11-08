@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toggleMode } from './actions/mode';
 import '../css/main.css';
 
-const Form = ({ formDefault, formChange, toggleMode, formValue }) => {
+const Form = ({ formDefault, formChange, toggleMode, formValue, onClick }) => {
 	const [mode, setMode] = useState(false);
 	const restaurantQuery = event => {
 		formDefault(event);
@@ -13,7 +13,7 @@ const Form = ({ formDefault, formChange, toggleMode, formValue }) => {
 		formChange(event);
 	};
 
-	const onClick = () => {
+	const onToggle = () => {
 		setMode(!mode);
 		toggleMode(!mode);
 	};
@@ -47,7 +47,7 @@ const Form = ({ formDefault, formChange, toggleMode, formValue }) => {
 			</div>
 			<div className="form__container--dark-theme-toggle">
 				<button
-					onClick={() => onClick()}
+					onClick={() => onToggle()}
 					className={
 						mode ? 'form__container--dark-theme-toggle--dark' : 'form__container--dark-theme-toggle--light'
 					}

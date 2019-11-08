@@ -49,6 +49,7 @@ const RamenList = props => {
 const mapStateToProps = state => {
 	return {
 		mode: state.mode,
+		favorites: state.favorites,
 	};
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import RamenList from './RamenList';
 import ResultsNav from './ResultsNav';
 import { connect } from 'react-redux';
+import { addToFavorites } from './actions/favorites';
 
 import '../css/main.css';
 
@@ -18,25 +19,34 @@ class SideBar extends React.Component {
 
 	favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
+	mapFavorites = () => {
+		this.props.addToFavorites(this.state.favorites);
+	};
+	componentDidMount() {
+		this.mapFavorites();
+	}
+
 	componentDidUpdate(prevProps, prevState) {
-		//console.log(this.state.favorited);
 		if (this.favorites !== prevState.favorites) {
 			this.setState({ favorites: this.favorites });
+			this.mapFavorites();
 		}
 	}
 
 	addFavorite = (e, data) => {
+		const favExist = this.favorites.map(fav => fav.id);
 		//need to check array if name already exists
-		if (!this.favorites.includes(data) && this.favorites.length <= 20) {
-			this.favorites.push(data);
+		if (![...favExist].includes(data.id) && this.favorites.length <= 20) {
+			this.favorites.unshift(data);
 			localStorage.setItem('favorites', JSON.stringify(this.favorites));
 		}
 	};
 	removeFavorite = (e, data) => {
-		if (this.favorites.includes(data)) {
-			this.favorites.splice(this.favorites.indexOf(data), 1);
-			this.setState({ favorites: this.favorites });
+		const favExist = this.favorites.map(fav => fav.id);
+		if ([...favExist].includes(data.id)) {
+			this.favorites.splice([...favExist].indexOf(data.id), 1);
 			localStorage.setItem('favorites', JSON.stringify(this.favorites));
+			this.setState({ favorites: this.favorites });
 		}
 	};
 
@@ -67,7 +77,11 @@ class SideBar extends React.Component {
 const mapStateToProps = state => {
 	return {
 		mode: state.mode,
+		favorites: state.favorites,
 	};
 };
 
-export default connect(mapStateToProps)(SideBar);
+export default connect(
+	mapStateToProps,
+	{ addToFavorites }
+)(SideBar);

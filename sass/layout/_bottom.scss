@@ -29,9 +29,6 @@
 		align-items: center;
 		position: relative;
 		padding: 0.5rem 0;
-		& h2 {
-			color: #666;
-		}
 
 		& i {
 			color: $color-orange;
@@ -41,10 +38,6 @@
 	}
 	&--middle {
 		order: 1;
-
-		& h2 {
-			color: #666;
-		}
 	}
 	&--right {
 		order: 2;
@@ -74,7 +67,6 @@
 			}
 		}
 		& h2 {
-			color: #666;
 			margin-right: 0.3rem;
 		}
 	}
@@ -90,7 +82,7 @@
 	flex-direction: column;
 	justify-content: space-around;
 	color: rgb(139, 134, 134);
-	top: -550%;
+	top: -450%;
 	z-index: 999999;
 	position: absolute;
 	& p {

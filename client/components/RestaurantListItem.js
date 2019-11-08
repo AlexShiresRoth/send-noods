@@ -86,20 +86,20 @@ class RestaurantListItem extends React.Component {
 			window.addEventListener('resize', this.handleScreenSize);
 		}
 	}
+	favoritesList = this.props.favorites.favorites.map(favorite => {
+		return favorite.name;
+	});
 
 	render() {
 		const styles = {
 			background: '#ff4500',
 			borderRadius: '50%',
-			boxShadow: '0 10px 10px #eee',
 			color: '#fff',
 			padding: '0.5rem',
 		};
-
 		const addStyle = event => {
 			event.target.style.background = '#ff4500';
 			event.target.style.borderRadius = '50%';
-			event.target.style.boxShadow = '0 10px 10px #eee';
 			event.target.style.color = '#fff';
 			event.target.style.padding = '0.5rem';
 		};
@@ -121,12 +121,14 @@ class RestaurantListItem extends React.Component {
 						<p>Address: {this.props.spot.formatted_address}</p>
 						<div className="address__container--favorite">
 							<i
-								className="far fa-heart"
+								className={`${
+									this.props.mode.mode ? 'far fa-heart dark-icon' : 'far fa-heart light-icon'
+								} `}
 								onClick={e => {
 									this.props.addFavorite(e, this.getdata());
 									addStyle(e);
 								}}
-								style={this.props.isFavorited.includes(this.props.spot.name) ? styles : null}
+								style={this.favoritesList.includes(this.props.spot.name) ? { ...styles } : null}
 							/>
 							<p>Add to favorites</p>
 						</div>
@@ -146,11 +148,9 @@ class RestaurantListItem extends React.Component {
 							<div className="ramen__title--toggle">
 								<p>{this.state.showMore ? 'Hide Details' : 'Show Details'}</p>
 								<i
-									class={`${
-										this.state.showMore
-											? 'fas fa-chevron-up animate-box-shadow'
-											: 'fas fa-chevron-down '
-									} ${this.props.mode.mode ? 'dark-accent' : ''}`}
+									class={`${this.state.showMore ? 'fas fa-chevron-up ' : 'fas fa-chevron-down '} ${
+										this.props.mode.mode ? 'dark-icon' : 'light-icon'
+									}`}
 									onClick={() => this.toggleCardDetails()}
 								/>
 							</div>
@@ -182,12 +182,14 @@ class RestaurantListItem extends React.Component {
 						</div>
 						<div className="favorite">
 							<i
-								className={this.props.mode.mode ? 'far fa-heart dark-accent' : 'far fa-heart'}
+								className={`${
+									this.props.mode.mode ? 'far fa-heart dark-icon' : 'far fa-heart light-icon'
+								} ${this.favoritesList.includes(this.props.spot.name) ? 'favorited' : ''}`}
 								onClick={e => {
 									this.props.addFavorite(e, this.getdata());
 									addStyle(e);
 								}}
-								style={this.props.isFavorited.includes(this.props.spot.name) ? styles : null}
+								style={this.favoritesList.includes(this.props.spot.name) ? { ...styles } : null}
 							/>
 						</div>
 					</div>
@@ -200,6 +202,7 @@ class RestaurantListItem extends React.Component {
 const mapStateToProps = state => {
 	return {
 		mode: state.mode,
+		favorites: state.favorites,
 	};
 };
 

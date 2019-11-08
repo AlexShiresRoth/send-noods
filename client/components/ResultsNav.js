@@ -10,7 +10,7 @@ class ResultsNav extends React.Component {
 
 		this.state = {
 			hovered: false,
-			favorites: this.props.favorited,
+			favorites: this.props.favorites.favorites,
 			isMobile: false,
 		};
 		this.handleScreenSize = this.handleScreenSize.bind(this);
@@ -38,8 +38,8 @@ class ResultsNav extends React.Component {
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if (this.props.favorited !== prevProps.favorited) {
-			this.setState({ favorites: this.props.favorited });
+		if (this.props.favorites.favorites !== prevProps.favorites.favorites) {
+			this.setState({ favorites: this.props.favorites.favorites });
 		}
 		if (this.state.isMobile !== prevState.isMobile) {
 			window.addEventListener('resize', this.handleScreenSize);
@@ -121,6 +121,7 @@ class ResultsNav extends React.Component {
 const mapStateToProps = state => {
 	return {
 		mode: state.mode,
+		favorites: state.favorites,
 	};
 };
 
