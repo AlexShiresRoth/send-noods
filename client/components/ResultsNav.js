@@ -58,7 +58,11 @@ class ResultsNav extends React.Component {
 						<h2>Favorite Spots</h2>
 						<i className="fas fa-chevron-down" />
 						{this.state.hovered && this.props.favorited ? (
-							<FavoriteList favorites={this.state.favorites} removeFavorite={this.props.removeFavorite} />
+							<FavoriteList
+								favorites={this.state.favorites}
+								themeMode={this.props.mode.mode}
+								removeFavorite={this.props.removeFavorite}
+							/>
 						) : null}
 					</div>
 					{!this.state.isMobile ? (
@@ -95,7 +99,11 @@ class ResultsNav extends React.Component {
 						<h2>Favorite Spots</h2>
 						<i className="fas fa-chevron-down" />
 						{this.state.hovered && this.props.favorited ? (
-							<FavoriteList favorites={this.state.favorites} removeFavorite={this.props.removeFavorite} />
+							<FavoriteList
+								favorites={this.state.favorites}
+								themeMode={this.props.mode.mode}
+								removeFavorite={this.props.removeFavorite}
+							/>
 						) : null}
 					</div>
 					{!this.state.isMobile ? (

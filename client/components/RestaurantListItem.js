@@ -144,13 +144,15 @@ class RestaurantListItem extends React.Component {
 					<div className="list--item--top">
 						<div className="img-container">{this.getPhotos()}</div>
 						<div className="ramen__title">
-							{this.props.spot.name}
+							{this.props.spot.name.length >= 20
+								? `${this.props.spot.name.substring(0, 20)}...`
+								: this.props.spot.name}
 							<div className="ramen__title--toggle">
 								<p>{this.state.showMore ? 'Hide Details' : 'Show Details'}</p>
 								<i
-									class={`${this.state.showMore ? 'fas fa-chevron-up ' : 'fas fa-chevron-down '} ${
-										this.props.mode.mode ? 'dark-icon' : 'light-icon'
-									}`}
+									className={`${
+										this.state.showMore ? 'fas fa-chevron-up ' : 'fas fa-chevron-down '
+									} ${this.props.mode.mode ? 'dark-icon' : 'light-icon'}`}
 									onClick={() => this.toggleCardDetails()}
 								/>
 							</div>

@@ -602,8 +602,8 @@ select {
   top: 2rem;
   left: 0;
   background: #eee;
-  -webkit-box-shadow: 0 5px 10px #eee;
-          box-shadow: 0 5px 10px #eee;
+  -webkit-box-shadow: 0 2px 2px #eee;
+          box-shadow: 0 2px 2px #eee;
   max-height: 10rem;
   min-width: 10rem;
   overflow-y: scroll;
@@ -1079,6 +1079,18 @@ select {
   -webkit-box-shadow: 0 4px 4px #1a1a1a;
           box-shadow: 0 4px 4px #1a1a1a;
   border: 1px solid #322;
+}
+
+.dark-favorite {
+  background: #333;
+  color: #cc3700;
+  -webkit-box-shadow: 0 2px 2px #262626;
+          box-shadow: 0 2px 2px #262626;
+}
+
+.dark-favorite-item {
+  border-bottom: 1px solid #404040;
+  background: #333;
 }
 
 .dark-accent {

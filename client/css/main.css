@@ -327,7 +327,7 @@ select {
   top: 2rem;
   left: 0;
   background: #eee;
-  box-shadow: 0 5px 10px #eee;
+  box-shadow: 0 2px 2px #eee;
   max-height: 10rem;
   min-width: 10rem;
   overflow-y: scroll; }
@@ -562,22 +562,31 @@ select {
     transform: translateY(0.3vh); }
 
 .dark {
-  background: #222;
+  background: #333;
   color: #f3f3f3f3;
-  box-shadow: 0 4px 4px #090909;
+  box-shadow: 0 4px 4px #1a1a1a;
   border: 1px solid #322; }
 
+.dark-favorite {
+  background: #333;
+  color: #cc3700;
+  box-shadow: 0 2px 2px #262626; }
+
+.dark-favorite-item {
+  border-bottom: 1px solid #404040;
+  background: #333; }
+
 .dark-accent {
-  background: #2a2a2a;
+  background: #3b3b3b;
   color: #e6e6e6;
-  box-shadow: 0 4px 4px #151515; }
+  box-shadow: 0 4px 4px #262626; }
   .dark-accent:hover {
-    box-shadow: 0 6px 6px #101010; }
+    box-shadow: 0 6px 6px #212121; }
 
 .dark-borders {
   border: 0;
-  border-top: 1px solid #3c3c3c;
-  border-bottom: 1px solid #3c3c3c; }
+  border-top: 1px solid #4d4d4d;
+  border-bottom: 1px solid #4d4d4d; }
 
 .favorited {
   background: #cc3700;

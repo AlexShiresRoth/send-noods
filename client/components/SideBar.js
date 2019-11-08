@@ -47,6 +47,10 @@ class SideBar extends React.Component {
 			this.favorites.splice([...favExist].indexOf(data.id), 1);
 			localStorage.setItem('favorites', JSON.stringify(this.favorites));
 			this.setState({ favorites: this.favorites });
+			e.target.parentNode.style.visibility = 'hidden';
+			e.target.style.visibility = 'hidden';
+			e.target.parentNode.style.padding = '0';
+			e.target.parentNode.style.maxHeight = '0';
 		}
 	};
 
