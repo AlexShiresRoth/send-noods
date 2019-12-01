@@ -223,11 +223,10 @@ select {
 
 .ramen--list {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  row-gap: 1rem;
-  column-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 1rem;
   color: #f3f3f3f3;
-  color: #fff;
   list-style: none; }
 
 .list--item {
@@ -319,6 +318,24 @@ select {
   margin: 1.3rem 0;
   font-weight: 700;
   color: #e63e00; }
+
+@media screen and (min-width: 1400px) {
+  .ramen--list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    gap: 1rem;
+    color: #f3f3f3f3;
+    list-style: none; } }
+
+@media screen and (min-width: 900px) and (max-width: 1150px) {
+  .ramen--list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 1rem;
+    color: #f3f3f3f3;
+    list-style: none; } }
 
 .favorite__list {
   display: flex;

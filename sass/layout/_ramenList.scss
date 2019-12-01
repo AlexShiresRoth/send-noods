@@ -14,7 +14,6 @@
 
 .ramen--list {
 	@include display-list;
-	color: #fff;
 	list-style: none;
 }
 
@@ -123,4 +122,17 @@
 
 	font-weight: 700;
 	color: darken(#ff4500, 5%);
+}
+
+@media screen and (min-width: 1400px) {
+	.ramen--list {
+		@include display-list-wide;
+		list-style: none;
+	}
+}
+@media screen and (min-width: 900px) and (max-width: 1150px) {
+	.ramen--list {
+		@include display-list-small;
+		list-style: none;
+	}
 }

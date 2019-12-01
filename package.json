@@ -21,6 +21,7 @@
 	"scripts": {
 		"start": "node bin/www",
 		"test": "react-scripts test",
+		"build": "react-scripts build",
 		"webpack": "webpack --mode=development",
 		"eject": "react-scripts eject",
 		"compile:sass": "node-sass --include-path sass sass/main.scss   client/css/main.css"
